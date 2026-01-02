@@ -9,14 +9,14 @@ const Home = () => {
     <section>
       <Header />
       <main>
-        <section className=" my-4  sm:px-6 sm:ml-4 lg:px-8">
+        <section className="my-4 w-full sm:px-6 sm:ml-4 sm:mr-0 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
             <div className="w-full ml-4  lg:w-1/2">
               <h1 className="font-bold text-[20px] mx-2 mb-4 text-3xl sm:text-2xl lg:text-4xl leading-tight">
                 Unleash The Power of Digital Inventory Management
               </h1>
 
-              <p className="text-sm mx-2 text-justify sm:text-base lg:mt-16 text-gray-700 max-w-xl">
+              <p className="text-sm mx-4 text-justify sm:text-base lg:mt-16 text-gray-700 max-w-xl">
                 Join our platform and unlock a world of amazing opportunities
                 and endless possibilities. Embrace the future of innovation and
                 collaboration as we revolutionize the way you connect, learn,
@@ -43,12 +43,12 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="w-full lg:w-1/2 flex justify-end">
+            <div className="w-full lg:w-1/2 flex justify-end sm:mr-0">
               <Image
                 src="/landing_page_top_right_icon.svg"
                 alt="Dashboard illustration"
-                width={725}
-                height={495}
+                width={700}
+                height={490}
                 className="w-full mr-0  hidden max-w-md lg:max-w-lg sm:block"
                 priority
               />

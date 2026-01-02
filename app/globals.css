@@ -1,5 +1,32 @@
 @import "tailwindcss";
 
+/* Custom colors */
+@theme {
+  --color-coral: #f05830;
+  --color-slate: #303c67;
+  --color-gray: #cdd0da;
+  --color-peach: #fcded6;
+  --color-mist: #f1eeeeb2;
+
+  /*base background/foreground */
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+}
+
+/* global resets */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* @import "tailwindcss";
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -27,4 +54,4 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-}
+} */
