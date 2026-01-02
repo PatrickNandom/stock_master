@@ -1,7 +1,7 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import Image from "next/image";
-import FeatureCard from "./components/FeaturedCard";
+import FeatureCard from "../components/FeaturedCard";
 import Link from "next/link";
 const Home = () => {
   return (
@@ -88,7 +88,7 @@ const Home = () => {
             automatically keeps a detailed record of
              your inventory, saving you time and 
              eliminating the need for manual tracking."
-              imageSrc="/landingpage_sectio1_icon.svg"
+              imageSrc="/landingpage_section1_icon.svg"
               imageAlt="Inventory Tracking"
               bgColor="bg-[#fcded6]"
             />

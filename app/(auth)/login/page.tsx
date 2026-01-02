@@ -86,7 +86,7 @@ const LoginPage = () => {
         />
 
         <Image
-          src="/left-arrow.svg"
+          src="/auth_left-arrow.svg"
           className="cursor-pointer hidden sm:block"
           alt="App logo"
           width={20}
@@ -136,14 +136,14 @@ const LoginPage = () => {
         </div>
 
         <Image
-          src="/crown.svg"
+          src="/auth_crown.svg"
           alt="auth icon 1"
           className="hidden sm:block absolute -top-10 -right-14"
           width={100}
           height={80}
         />
         <Image
-          src="/S.svg"
+          src="/auth_S.svg"
           alt="auth icon 2"
           className="hidden sm:block absolute -bottom-1 -left-12"
           width={40}

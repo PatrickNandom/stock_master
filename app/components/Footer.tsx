@@ -43,19 +43,19 @@ const Footer = () => {
 
         <nav className="flex flex-row justify-center sm:justify-start gap-4 mt-2">
           <Image
-            src="/facebook_icon.svg"
+            src="/footer_facebook_icon.svg"
             alt="facebook logo"
             width={15}
             height={15}
           />
           <Image
-            src="/twitter_icon.svg"
+            src="/footer_twitter_icon.svg"
             alt="twitter logo"
             width={15}
             height={15}
           />
           <Image
-            src="/linkedin_icon.svg"
+            src="/footer_linkedin_icon.svg"
             alt="linkedin logo"
             width={15}
             height={15}

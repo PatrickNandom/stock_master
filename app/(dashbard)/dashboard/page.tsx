@@ -1,4 +1,3 @@
-
 import StoreCard from "@/app/components/StoreCard";
 const Dashboard = () => {
   return (
@@ -7,7 +6,7 @@ const Dashboard = () => {
         storeName="Urban Outfitters"
         description="Household items sales"
         address="123 Fashion Ave, New York, NY"
-        imageSrc="/store_card_icon.svg"
+        imageSrc="/dashboard_store_card_icon.svg"
       />
     </div>
   );
