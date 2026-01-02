@@ -5,9 +5,9 @@ import FeatureCard from "./components/FeaturedCard";
 import Link from "next/link";
 const Home = () => {
   return (
-    <section>
+    <main>
       <Header />
-      <main>
+      <section>
         <section className="my-4 w-full sm:px-6 sm:ml-4 sm:mr-0 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
             <div className="w-full ml-4  lg:w-1/2">
@@ -159,9 +159,9 @@ const Home = () => {
             </div>
           </div>
         </section>
-      </main>
+      </section>
       <Footer />
-    </section>
+    </main>
   );
 };
 
