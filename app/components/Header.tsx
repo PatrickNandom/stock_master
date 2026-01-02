@@ -55,6 +55,15 @@ const Header = () => {
           <Link href="/terms" onClick={() => setMobileMenuOpen(false)}>
             Terms
           </Link>
+
+          <Link
+            href="/register"
+            className="text-white hover:text-peach"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Sign Up
+          </Link>
+
           <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
             <button className="min-w-32.5 h-9.5 bg-peach text-black rounded-lg px-4 cursor-pointer">
               Login
