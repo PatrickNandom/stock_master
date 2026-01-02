@@ -8,9 +8,8 @@ const Home = () => {
   return (
     <section>
       <Header />
-
       <main>
-        <section className=" my-4 w-screen sm:px-6 sm:ml-4 lg:px-8">
+        <section className=" my-4  sm:px-6 sm:ml-4 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
             <div className="w-full ml-4  lg:w-1/2">
               <h1 className="font-bold text-[20px] mx-2 mb-4 text-3xl sm:text-2xl lg:text-4xl leading-tight">
@@ -70,7 +69,7 @@ const Home = () => {
               empower business owners, managers, and their dedicated teams with
               comprehensive and intuitive inventory management solutions. With
               Stock Master, say goodbye to the headaches of manual stock
-              tracking or the limitations of outdated systems. 📲🔒 Effortless
+              tracking or the limitations of outdated systems.📲🔒 Effortless
               Inventory Tracking: From product counting to stock updates, our
               app streamlines every aspect of inventory management, allowing you
               to monitor stock levels with ease.
@@ -162,7 +161,6 @@ const Home = () => {
           </div>
         </section>
       </main>
-
       <Footer />
     </section>
   );

@@ -6,7 +6,7 @@ const Header = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="flex items-center w-screen sm:justify-around px-4 sm:px-8 min-h-[70] bg-linear-to-r from-[#F7AB97] to-[#071548]">
+    <header className="flex items-center w-screen sm:justify-around px-4 sm:px-8 min-h-17.5 bg-linear-to-r from-[#F7AB97] to-[#071548]">
       <Link href="/">
         <Image
           src="/stockmaster_logo.svg"

@@ -71,9 +71,9 @@ const SignUpPage = () => {
   };
 
   return (
-    <main className="py-4 w-screen min-h-screen px-8 flex items-center justify-center bg-linear-to-r from-[#F7AB97] to-[#071548]">
+    <main className="py-4 min-h-screen px-8 flex items-center justify-center bg-linear-to-r from-[#F7AB97] to-[#071548]">
       <form
-        className="flex flex-col items-center justify-evenly relative w-[600] min-h-[600] sm:w-[900] lg:w-[1000] sm:h-[750] bg-[#E9E3E399] rounded-[20px] p-10"
+        className="flex flex-col items-center justify-evenly relative w-[600] min-h-[600] sm:w-[75000] lg:w-[800] sm:h-[750] bg-[#E9E3E399] rounded-[20] p-10 sm:px-12"
         onSubmit={handleSubmit}
         noValidate
       >

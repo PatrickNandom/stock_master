@@ -70,9 +70,9 @@ const LoginPage = () => {
   };
 
   return (
-    <main className="px-8 w-screen min-h-screen flex items-center justify-center bg-linear-to-r from-[#F7AB97] to-[#071548]">
+    <main className="px-8 min-h-screen flex items-center justify-center bg-linear-to-r from-[#F7AB97] to-[#071548]">
       <form
-        className="flex flex-col items-center justify-evenly relative w-125 h-[500] sm:w-[800] sm:h-[600] lg:w-[1000] bg-[#E9E3E399] rounded-[20] p-10"
+        className="flex flex-col items-center justify-evenly relative w-125 h-[500] sm:w-[600] sm:h-[600] lg:w-[800] bg-[#E9E3E399] rounded-[20] p-10"
         onSubmit={handleSubmit}
         noValidate
       >
