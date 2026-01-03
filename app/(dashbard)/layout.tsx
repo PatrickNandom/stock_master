@@ -1,11 +1,7 @@
 import "../globals.css";
 import Sidebar from "../components/Sidebar";
 import Topbar from "../components/Topbar";
-export default function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body>
@@ -20,4 +16,6 @@ export default function DashboardLayout({
       </body>
     </html>
   );
-}
+};
+
+export default DashboardLayout;

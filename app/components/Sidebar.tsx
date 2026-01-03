@@ -46,7 +46,7 @@ const links: NavLink[] = [
 const Sidebar = () => {
   const pathname = usePathname();
   return (
-    <aside className="w-64 hidden bg-[#CDD0DA] sm:block border-r h-screen">
+    <aside className="w-64 hidden bg-[#CDD0DA] sm:block border-r border-gray-300 h-screen">
       <Link href="/">
         <div className="mb-8 h-16 bg-[#F7AB97] font-bold text-xl flex items-center justify-around">
           <Image
@@ -90,6 +90,6 @@ const Sidebar = () => {
       </nav>
     </aside>
   );
-};
+}
 
 export default Sidebar;

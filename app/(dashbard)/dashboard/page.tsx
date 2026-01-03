@@ -4,7 +4,7 @@ import StatCard from "@/app/components/StatCard";
 
 const DashboardPage = () => {
   return (
-    <>
+    <div className="flex flex-col ">
       <StoreCard
         storeName="Urban Outfitters"
         description="Household items sales"
@@ -21,7 +21,7 @@ const DashboardPage = () => {
         <StatCard label="New Inventory Items" value="700 Items" />
         <StatCard label="Total Sales Price" value="$900k" />
       </div>
-    </>
+    </div>
   );
 };
 

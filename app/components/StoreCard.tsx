@@ -13,7 +13,7 @@ const StoreCard: React.FC<StoreCardProps> = ({
   imageSrc,
 }) => {
   return (
-    <div className="flex bg-[#283658] rounded-xl overflow-hidden w-[400] h-[140] font-sans text-white shadow-md">
+    <div className="flex self-center bg-[#283658] rounded-xl overflow-hidden  min-w-[900] h-40 font-sans text-white shadow-md">
       <div className="flex-1 p-5">
         <h2 className="m-0 font-semibold text-[1.3rem]">{storeName}</h2>
         <p className="mt-1 mb-2 text-[0.85rem] text-[#C1C6D1]">{description}</p>
