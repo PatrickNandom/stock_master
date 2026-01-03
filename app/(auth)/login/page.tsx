@@ -3,6 +3,7 @@ import CustomInput from "@/app/components/CustomInput ";
 import React, { useState } from "react";
 import Image from "next/image";
 import { z } from "zod";
+import Link from "next/link";
 
 // Define schema
 const schema = z.object({
@@ -120,13 +121,14 @@ const LoginPage = () => {
             required
           />
         </div>
-
-        <button
-          type="submit"
-          className="min-w-[130] min-h-[38] bg-coral cursor-pointer text-white rounded-lg px-6 text-sm font-medium hover:opacity-90 transition mt-6"
-        >
-          Confirm
-        </button>
+        <Link href="/dashboard">
+          <button
+            type="submit"
+            className="min-w-[130] min-h-[38] bg-coral cursor-pointer text-white rounded-lg px-6 text-sm font-medium hover:opacity-90 transition mt-6"
+          >
+            Confirm
+          </button>
+        </Link>
 
         <div className="my-8">
           <p className="font-medium text-gray-700">Forgotten password?</p>
