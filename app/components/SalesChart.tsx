@@ -1,4 +1,4 @@
-export default function SalesChart() {
+const SalesChart = () => {
   return (
     <div className="bg-white rounded-xl p-6 mt-6">
       <h3 className="font-semibold mb-4 text-center">Monthly sales</h3>
@@ -14,4 +14,5 @@ export default function SalesChart() {
       </div>
     </div>
   );
-}
+};
+export default SalesChart;
