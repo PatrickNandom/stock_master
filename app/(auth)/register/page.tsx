@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { z } from "zod";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 // Validation schema
 const schema = z
@@ -31,6 +32,7 @@ const schema = z
 type FormData = z.infer<typeof schema>;
 
 const SignUpPage = () => {
+  const router = useRouter();
   const [form, setForm] = useState<FormData>({
     businessName: "",
     address: "",
@@ -87,10 +89,11 @@ const SignUpPage = () => {
 
         <Image
           src="/auth_left-arrow.svg"
-          className="cursor-pointer hidden sm:block"
+          className="cursor-pointer block"
           alt="Back arrow"
           width={20}
           height={20}
+          onClick={() => router.back()}
         />
         <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-10">
           Sign Up

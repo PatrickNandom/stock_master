@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { z } from "zod";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 // Define schema
 const schema = z.object({
@@ -22,6 +23,7 @@ type FormData = {
 };
 
 const LoginPage = () => {
+  const router = useRouter();
   // Form state
   const [form, setForm] = useState<FormData>({ email: "", password: "" });
   // Error state
@@ -88,11 +90,12 @@ const LoginPage = () => {
 
         <Image
           src="/auth_left-arrow.svg"
-          className="cursor-pointer hidden sm:block"
+          className="cursor-pointer block"
           alt="App logo"
           width={20}
           height={20}
           loading="eager"
+          onClick={() => router.back()}
         />
 
         <h1 className="text-lg sm:text-lg md:text-2xl lg:text-3xl font-semibold mb-6">
