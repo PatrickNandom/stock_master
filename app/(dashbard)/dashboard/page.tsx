@@ -1,10 +1,10 @@
 import StoreCard from "@/app/components/StoreCard";
-import SalesChart from "@/app/components/SalesChart";
 import StatCard from "@/app/components/StatCard";
+import MonthlySalesChart from "@/app/components/MonthlySalesChart";
 
 const DashboardPage = () => {
   return (
-    <div className="flex flex-col py-8">
+    <div className="flex flex-col py-8 max-w-7xl mx-auto">
       <StoreCard
         storeName="Urban Outfitters"
         description="Household items sales"
@@ -12,9 +12,9 @@ const DashboardPage = () => {
         imageSrc="/dashboard_store_card_icon.svg"
       />
 
-      <SalesChart />
+      <MonthlySalesChart />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
         <StatCard
           imageSrc="/dashboard_card_sales_icon.svg"
           bgColor="bg-[#F7AB97]"

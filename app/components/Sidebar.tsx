@@ -46,18 +46,18 @@ const links: NavLink[] = [
 const Sidebar = () => {
   const pathname = usePathname();
   return (
-    <aside className="w-64 hidden bg-[#CDD0DA] sm:block border-r border-gray-300 h-screen">
-      <Link href="/">
-        <div className="mb-8 h-16 bg-[#F7AB97] font-bold text-xl flex items-center justify-around">
+    <aside className="w-64  hidden bg-[#CDD0DA] sm:block border-r border-gray-300 sticky top-0 sm:h-screen ">
+      <div className="mb-8 h-16 bg-[#F7AB97] font-bold text-xl flex items-center justify-around">
+        <Link href="/">
           <Image
             src="/stockmaster_logo.svg"
             alt="StockMaster Logo"
             width={50}
             height={50}
           />
-          <button className=" text-white text-2xl font-bold">☰</button>
-        </div>
-      </Link>
+        </Link>
+        <button className=" text-white text-2xl font-bold">☰</button>
+      </div>
 
       <nav className="space-y-2 px-4">
         {links.map((link) => {
@@ -90,6 +90,6 @@ const Sidebar = () => {
       </nav>
     </aside>
   );
-}
+};
 
 export default Sidebar;
