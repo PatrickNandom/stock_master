@@ -10,18 +10,28 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+
 interface SalesData {
   month: string;
-  productA: number;
-  productB: number;
+  macbook: number;
+  airpods: number;
 }
 
 const data: SalesData[] = [
-  { month: "May", productA: 62, productB: 75 },
-  { month: "June", productA: 68, productB: 62 },
-  { month: "July", productA: 68, productB: 46 },
-  { month: "August", productA: 68, productB: 64 },
+  { month: "January", macbook: 32, airpods: 45 },
+  { month: "February", macbook: 28, airpods: 38 },
+  { month: "March", macbook: 45, airpods: 52 },
+  { month: "April", macbook: 50, airpods: 48 },
+  { month: "May", macbook: 62, airpods: 75 },
+  { month: "June", macbook: 68, airpods: 62 },
+  { month: "July", macbook: 72, airpods: 55 },
+  { month: "August", macbook: 85, airpods: 90 },
+  { month: "September", macbook: 78, airpods: 82 },
+  { month: "October", macbook: 92, airpods: 98 },
+  { month: "November", macbook: 110, airpods: 115 },
+  { month: "December", macbook: 115, airpods: 120 },
 ];
+
 
 const MonthlySalesChart = () => {
   return (
@@ -54,7 +64,7 @@ const MonthlySalesChart = () => {
             <YAxis
               axisLine={false}
               tickLine={false}
-              ticks={[15, 30, 45, 60, 75]}
+              ticks={[15, 30, 45, 60, 75,90, 105, 120]}
               tick={{ fill: "#1d2645", fontSize: 12 }}
             />
             <Tooltip
@@ -68,24 +78,24 @@ const MonthlySalesChart = () => {
 
             {/* Product A - Orange Bar */}
             <Bar
-              dataKey="productA"
+              dataKey="macbook"
               fill="#f25f33"
               radius={[2, 2, 0, 0]}
-              barSize={45}
+              barSize={30}
             />
 
             {/* Product B - Dark Navy Bar */}
             <Bar
-              dataKey="productB"
+              dataKey="airpods"
               fill="#0a143f"
               radius={[2, 2, 0, 0]}
-              barSize={45}
+              barSize={30}
             />
           </BarChart>
         </ResponsiveContainer>
 
         {/* X-Axis Label */}
-        <div className="absolute -right-4 -bottom-2 text-xs font-bold text-[#1d2645]">
+        <div className="absolute -right-4 -bottom-4 text-xs font-bold text-[#1d2645]">
           Months
         </div>
       </div>
