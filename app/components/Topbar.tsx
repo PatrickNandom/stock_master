@@ -22,7 +22,7 @@ const Topbar = () => {
         </div>
       </div>
 
-      <h1 className="hidden sm:block text-xl text-white">Dashoard</h1>
+      <h1 className="hidden sm:block sm:text-[12] md:text-sm lg:text-xl text-white">Dashoard</h1>
 
       <div className="hidden sm:flex gap-4">
         <div className="w-8 h-8 flex justify-center items-center bg-white rounded-4xl p-1">
