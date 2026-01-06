@@ -9,10 +9,10 @@ const Topbar = () => {
 
   return (
     <header className="min-h-16 bg-linear-to-r from-[#F7AB97] to-[#071548]  flex  items-center sm:items-center sm:justify-between px-6 text-white">
-      <div className="hidden  sm:flex sm:items-center gap-4">
+      <div className="hidden  sm:flex sm:items-center sm:justify-between gap-4">
         <SearchBar value="" onChange={() => {}} />
 
-        <div className="w-8 h-8 flex justify-center items-center  bg-white rounded-4xl p-1">
+        <div className="w-8 h-8 sm:hidden  lg:flex justify-center items-center  bg-white rounded-4xl p-1">
           <Image
             src="/dashboard_topbar_notification_icon.svg"
             alt="notification"
@@ -22,9 +22,11 @@ const Topbar = () => {
         </div>
       </div>
 
-      <h1 className="hidden sm:block sm:text-[12] md:text-sm lg:text-xl text-white">Dashoard</h1>
+      <h1 className="hidden sm:hidden lg:block sm:text-[12] md:text-sm lg:text-xl text-white">
+        Dashoard
+      </h1>
 
-      <div className="hidden sm:flex gap-4">
+      <div className="hidden sm:hidden lg:flex gap-4">
         <div className="w-8 h-8 flex justify-center items-center bg-white rounded-4xl p-1">
           <Image
             src="/dashboard_topbar_settings_icon.svg"

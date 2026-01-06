@@ -10,7 +10,7 @@ type SearchBarProps = {
 
 const SearchBar: React.FC<SearchBarProps> = ({ value, onChange }) => {
   return (
-    <div className="relative w-30 h-8">
+    <div className="relative max-w-30 h-8">
       <Image
         src="/dashboard_topbar_search_icon.svg"
         alt="Search"
