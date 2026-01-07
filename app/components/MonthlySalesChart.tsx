@@ -76,7 +76,7 @@ const MonthlySalesChart = () => {
               }}
             />
 
-            {/* Product A - Orange Bar */}
+            {/* Macbook - Orange Bar */}
             <Bar
               dataKey="macbook"
               fill="#f25f33"
@@ -84,7 +84,7 @@ const MonthlySalesChart = () => {
               barSize={30}
             />
 
-            {/* Product B - Dark Navy Bar */}
+            {/* Airpods - Dark Navy Bar */}
             <Bar
               dataKey="airpods"
               fill="#0a143f"

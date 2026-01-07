@@ -46,7 +46,9 @@ const links: NavLink[] = [
 const Sidebar = () => {
   const pathname = usePathname();
   return (
-    <aside className="w-50  hidden bg-[#CDD0DA] sm:block border-r border-gray-300 sticky top-0 sm:h-screen ">
+    <aside
+      className="max-w-50  hidden bg-[#CDD0DA] sm:block border-r border-gray-300 sticky top-0 sm:h-screen sh-dvh landscape:max-h-[500px]:w-20s pl-[env(safe-area-inset-left)] "
+    >
       <div className="mb-8 h-16 bg-[#F7AB97] font-bold text-xl flex items-center justify-around">
         <Link href="/">
           <Image
