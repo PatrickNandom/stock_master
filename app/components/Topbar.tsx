@@ -3,12 +3,24 @@ import SearchBar from "./SearchBar";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const Topbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
+  
+  const routeTitles: Record<string, string> = {
+    "/dashboard": "Dashboard",
+    "/dashboard/sales": "Sales",
+    "/dashboard/items": "Items",
+    "/dashboard/notifications": "Notifications",
+    "/dashboard/history": "History",
+    "/dashboard/store-profile": "Store Profile",
+  };
+  const title = routeTitles[pathname] ?? "Dashboard";
 
   return (
-    <header className="min-h-16 bg-linear-to-r from-[#F7AB97] to-[#071548]  flex  items-center sm:items-center sm:justify-between px-6 text-white">
+    <header className="min-h-16 bg-linear-to-r from-[#F7AB97] to-[#071548] flex items-center sm:items-center sm:justify-between px-6 text-white">
       <div className="hidden  sm:flex sm:items-center sm:justify-between gap-4">
         <SearchBar value="" onChange={() => {}} />
 
@@ -23,7 +35,7 @@ const Topbar = () => {
       </div>
 
       <h1 className="hidden sm:hidden lg:block sm:text-[12] md:text-sm lg:text-xl text-white">
-        Dashoard
+        {title}
       </h1>
 
       <div className="hidden sm:hidden lg:flex gap-4">

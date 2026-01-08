@@ -7,7 +7,7 @@ type Props = {
   bgColor?: string;
 };
 
-export default function StatCard({ label, value, imageSrc, bgColor }: Props) {
+const StatCard = ({ label, value, imageSrc, bgColor }: Props) => {
   return (
     <div
       className={`${bgColor} rounded-[5] pl-4 pr-2 flex justify-between m-w-[320] h-[80]`}
@@ -25,4 +25,5 @@ export default function StatCard({ label, value, imageSrc, bgColor }: Props) {
       </span>
     </div>
   );
-}
+};
+export default StatCard;
