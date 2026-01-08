@@ -4,6 +4,7 @@ import Link from "next/link";
 
 type Props = {
   historyList: HistoryItem;
+  backgroundColor?: string;
 };
 
 const actionTextMap = {
@@ -18,9 +19,13 @@ const iconMap = {
   added: "/notification_add_icon.svg",
 };
 
-const HistoryCard = ({ historyList }: Props) => {
+const HistoryCard = ({ historyList, backgroundColor }: Props) => {
   return (
-    <div className="flex items-center justify-between mb-4 p-4 bg-[#FCDED6]">
+    <div
+      className={`flex items-center justify-between mb-4 p-4 bg-[${
+        backgroundColor ?? "#FCDED6"
+      }] rounded-[5px]`}
+    >
       <div className="flex items-center gap-4">
         <Image
           src={iconMap[historyList.type]}
