@@ -4,7 +4,7 @@ import StoreCard from "@/app/components/StoreCard";
 import StoreProfileCard from "@/app/components/StoreProfileCard";
 import Image from "next/image";
 import NotificationRow from "@/app/components/NotificationRow";
-import { notifications } from "@/app/data/notifications";
+import { notifications } from "@/app/data/data";
 import { useRouter } from "next/navigation";
 
 const Page = () => {

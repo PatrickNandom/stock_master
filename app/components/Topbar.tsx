@@ -7,8 +7,8 @@ import { usePathname } from "next/navigation";
 
 const Topbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const pathname = usePathname();
-  
+  const pathname: string = usePathname();
+
   const routeTitles: Record<string, string> = {
     "/dashboard": "Dashboard",
     "/dashboard/sales": "Sales",
@@ -16,8 +16,9 @@ const Topbar = () => {
     "/dashboard/notifications": "Notifications",
     "/dashboard/history": "History",
     "/dashboard/store-profile": "Store Profile",
+    "/dashboard/items/add-items": "Add Item",
   };
-  const title = routeTitles[pathname] ?? "Dashboard";
+  const title: string = routeTitles[pathname] ?? "Dashboard";
 
   return (
     <header className="min-h-16 bg-linear-to-r from-[#F7AB97] to-[#071548] flex items-center sm:items-center sm:justify-between px-6 text-white">
@@ -71,7 +72,7 @@ const Topbar = () => {
 
       {/* Mobile menu*/}
       {isMobileMenuOpen && (
-        <div className="sm:hidden absolute top-16 left-0 w-full bg-[#071548] text-white flex flex-col items-center gap-6 py-6 z-50 shadow-lg">
+        <div className="absolute top-16 left-0 w-full bg-[#071548] text-white flex flex-col items-center gap-6 py-6 z-50 shadow-lg sm:hidden">
           <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)}>
             Dashboard
           </Link>

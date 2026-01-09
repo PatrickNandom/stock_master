@@ -1,6 +1,5 @@
 import Image from "next/image";
-import { HistoryItem } from "@/app/data/notifications";
-import Link from "next/link";
+import { HistoryItem } from "@/app/data/data";
 
 type Props = {
   historyList: HistoryItem;
@@ -41,11 +40,9 @@ const HistoryCard = ({ historyList, backgroundColor }: Props) => {
         </p>
       </div>
       <div className="flex gap-3">
-        <Link href="#">
-          <button className="text-sm text-orange-500  hover:cursor-pointer">
-            See details
-          </button>
-        </Link>
+        <button className="text-sm text-orange-500  hover:cursor-pointer">
+          See details
+        </button>
 
         <span>{historyList.createdAt}</span>
       </div>

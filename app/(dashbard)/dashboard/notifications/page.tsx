@@ -1,6 +1,6 @@
 "use client";
 import HistoryCard from "@/app/components/HistoryCard";
-import { historyLists } from "@/app/data/notifications";
+import { historyLists } from "@/app/data/data";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 const page = () => {

@@ -1,10 +1,11 @@
 //STORE PROFILE DATA
-export type NotificationType = "sold" | "updated" | "added";
+
+export type AppDataType = "sold" | "updated" | "added";
 
 export interface NotificationItem {
   id: string;
   productId: string;
-  type: NotificationType;
+  type: AppDataType;
   createdAt: string;
 }
 
@@ -59,18 +60,13 @@ export const notifications: NotificationItem[] = [
   },
 ];
 
-
-
 //HISTORY PAGE DATA
-
-export type HistoryType = "sold" | "updated" | "added";
 
 export interface HistoryItem {
   id: string;
   productId: string;
-  type: NotificationType;
+  type: AppDataType;
   createdAt: string;
-  
 }
 
 export const historyLists: HistoryItem[] = [

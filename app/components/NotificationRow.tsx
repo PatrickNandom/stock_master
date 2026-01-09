@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { NotificationItem } from "@/app/data/notifications";
+import { NotificationItem } from "@/app/data/data";
 import Link from "next/link";
 
 type Props = {

@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { historyLists } from "@/app/data/notifications";
+import { historyLists } from "@/app/data/data";
 
 import { useRouter } from "next/navigation";
 import HistoryCard from "@/app/components/HistoryCard";
