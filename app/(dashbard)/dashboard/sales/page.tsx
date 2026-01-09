@@ -24,7 +24,6 @@ const SalesPage = () => {
           priority
           onClick={() => router.back()}
         />
-
         <h1 className="text-[18]">Input name or ID of product</h1>
       </div>
 
