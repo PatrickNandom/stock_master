@@ -9,6 +9,7 @@ interface CustomInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   align?: string;
   paddingY?: string;
   borderRadius?: string;
+  placeholder?: string;
 }
 
 const CustomInput = React.forwardRef<HTMLInputElement, CustomInputProps>(
@@ -21,6 +22,7 @@ const CustomInput = React.forwardRef<HTMLInputElement, CustomInputProps>(
       align,
       paddingY,
       borderRadius,
+      placeholder,
       ...props
     },
     ref
@@ -37,11 +39,12 @@ const CustomInput = React.forwardRef<HTMLInputElement, CustomInputProps>(
 
         <input
           ref={ref}
-          className={`w-full px-2 ${paddingY} border ${
+          placeholder={placeholder}
+          className={`w-full px-4 placeholder:text-[14] ${paddingY} border ${
             inputBorderColor ?? "border-orange-500"
           } ${borderRadius ?? "rounded-[5]"} ${
             inputBackgroundColor ?? "bg-white"
-          } text-lg focus:outline-none}`}
+          } text-lg focus:outline-none`}
           {...props}
         />
 

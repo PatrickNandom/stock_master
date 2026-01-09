@@ -1,17 +1,19 @@
 "use client";
 import CustomInput from "@/app/components/CustomInput ";
 import ImagePicker from "@/app/components/ImagePicker";
+import PrimaryButton from "@/app/components/PrimaryButton";
 import StepperInput from "@/app/components/StepperInput";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { is } from "zod/locales";
 
 const AddItem = () => {
   const router = useRouter();
   const handleImage = (file: File | null) => {
     console.log("Selected file:", file);
   };
-
+  const [isSaving, setIsSaving] = useState(false);
   const [quantity, setQuantity] = useState(40);
   const [price, setPrice] = useState(1500);
 
@@ -43,6 +45,7 @@ const AddItem = () => {
           align="justify-start"
           paddingY="py-1"
           borderRadius="rounded-[20]"
+          placeholder="60924"
         />
 
         <CustomInput
@@ -52,6 +55,7 @@ const AddItem = () => {
           align="justify-start"
           paddingY="py-4"
           borderRadius="rounded-[20]"
+          placeholder="Max 500 characters"
         />
         <div className="flex flex-col gap-8 items-center sm:flex-row sm:justify-between p-6 mt-2">
           <ImagePicker label="Add image" onImageSelect={handleImage} />
@@ -78,14 +82,11 @@ const AddItem = () => {
           />
         </div>
 
-        <div className="flex justify-center w-full mt-8">
-          <button
-            type="submit"
-            className="min-w-[130] h-[38] bg-coral text-white rounded-lg px-6 text-sm font-medium hover:cursor-pointer transition-opacity hover:opacity-90"
-          >
-            Save
-          </button>
-        </div>
+        <PrimaryButton
+          label="Save"
+          isLoading={isSaving}
+          onClick={() => setIsSaving(!isSaving)}
+        />
       </form>
     </section>
   );

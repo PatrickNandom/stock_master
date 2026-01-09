@@ -23,13 +23,12 @@ const StepperInput = ({
   const iconColor = "text-[#1a237e]";
 
   return (
-    <div className="flex flex-col gap-2 w-full max-w-[200]">
+    <div className="flex flex-col gap-2 w-full sm:max-w-[200]">
       <label className="text-[#1a237e] font-semibold text-sm ml-1">
         {label}
       </label>
 
-      <div className="flex items-center overflow-hidden rounded-xl border border-transparent focus-within:border-[#1a237e]/20 transition-all shadow-sm">
-        {/* Increment Button */}
+      <div className="flex items-center sm:w-auto overflow-hidden rounded-xl border border-transparent focus-within:border-[#1a237e]/20 transition-all shadow-sm">
         <button
           type="button"
           onClick={onIncrement}

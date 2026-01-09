@@ -1,5 +1,6 @@
 "use client";
 import CustomInput from "@/app/components/CustomInput ";
+import PrimaryButton from "@/app/components/PrimaryButton";
 import StepperInput from "@/app/components/StepperInput";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -7,7 +8,7 @@ import { useState } from "react";
 
 const SalesPage = () => {
   const router = useRouter();
-
+  const [isSaving, setIsSaving] = useState(false);
   const [quantity, setQuantity] = useState(40);
   const [price, setPrice] = useState(1500);
 
@@ -45,7 +46,7 @@ const SalesPage = () => {
           borderRadius="rounded-[20]"
         />
 
-        <div className="flex justify-between p-6">
+        <div className="flex flex-col gap-8 items-center sm:flex-row sm:justify-between p-6 mt-2">
           <StepperInput
             label="Quantity"
             value={quantity}
@@ -66,14 +67,11 @@ const SalesPage = () => {
           />
         </div>
 
-        <div className="flex justify-center w-full mt-8">
-          <button
-            type="submit"
-            className="min-w-[130] h-[38] bg-coral text-white rounded-lg px-6 text-sm font-medium hover:cursor-pointer transition-opacity hover:opacity-90"
-          >
-            Save
-          </button>
-        </div>
+        <PrimaryButton
+          label="Save"
+          isLoading={isSaving}
+          onClick={() => setIsSaving(!isSaving)}
+        />
       </form>
     </section>
   );
