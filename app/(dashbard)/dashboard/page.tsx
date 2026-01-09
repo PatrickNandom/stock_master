@@ -11,9 +11,7 @@ const DashboardPage = () => {
         address="123 Fashion Ave, New York, NY"
         imageSrc="/dashboard_store_card_icon.svg"
       />
-
       <MonthlySalesChart />
-
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
         <StatCard
           imageSrc="/dashboard_card_sales_icon.svg"
