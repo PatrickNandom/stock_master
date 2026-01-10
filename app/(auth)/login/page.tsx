@@ -107,6 +107,8 @@ const LoginPage = () => {
             label="Email Address"
             type="email"
             name="email"
+            inputBackgroundColor=""
+            inputBorderColor=""
             value={form.email}
             onChange={handleChange}
             error={errors.email}
@@ -117,6 +119,8 @@ const LoginPage = () => {
             label="Password"
             type="password"
             name="password"
+            inputBackgroundColor=""
+            inputBorderColor=""
             value={form.password}
             onChange={handleChange}
             error={errors.password}

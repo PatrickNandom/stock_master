@@ -104,6 +104,8 @@ const SignUpPage = () => {
               label="Business Name"
               type="text"
               name="businessName"
+              inputBackgroundColor=""
+              inputBorderColor=""
               value={form.businessName}
               onChange={handleChange}
               error={errors.businessName}
@@ -112,6 +114,8 @@ const SignUpPage = () => {
               label="Address"
               type="text"
               name="address"
+              inputBackgroundColor=""
+              inputBorderColor=""
               value={form.address}
               onChange={handleChange}
               error={errors.address}
@@ -123,6 +127,8 @@ const SignUpPage = () => {
               label="Email Address"
               type="email"
               name="email"
+              inputBackgroundColor=""
+              inputBorderColor=""
               value={form.email}
               onChange={handleChange}
               error={errors.email}
@@ -132,6 +138,8 @@ const SignUpPage = () => {
               label="Phone No."
               type="text"
               name="phone"
+              inputBackgroundColor=""
+              inputBorderColor=""
               value={form.phone}
               onChange={handleChange}
               error={errors.phone}
@@ -143,6 +151,8 @@ const SignUpPage = () => {
               label="Password"
               type="password"
               name="password"
+              inputBackgroundColor=""
+              inputBorderColor=""
               value={form.password}
               onChange={handleChange}
               error={errors.password}
@@ -152,6 +162,8 @@ const SignUpPage = () => {
               label="Confirm Password"
               type="password"
               name="confirmPassword"
+              inputBackgroundColor=""
+              inputBorderColor=""
               value={form.confirmPassword}
               onChange={handleChange}
               error={errors.confirmPassword}
