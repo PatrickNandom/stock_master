@@ -17,11 +17,11 @@ const CustomInput = React.forwardRef<HTMLInputElement, CustomInputProps>(
     {
       label,
       error,
-      inputBackgroundColor,
-      inputBorderColor,
-      align,
+      inputBackgroundColor = "bg-white",
+      inputBorderColor = "border-orange-500",
+      align = "justify-center",
       paddingY,
-      borderRadius,
+      borderRadius = "rounded-[5]",
       placeholder,
       ...props
     },
@@ -29,22 +29,14 @@ const CustomInput = React.forwardRef<HTMLInputElement, CustomInputProps>(
   ) => {
     return (
       <div className="mb-4 ">
-        <label
-          className={`flex ${
-            align ?? "justify-center"
-          } mb-2 font-medium text-gray-700`}
-        >
+        <label className={`flex ${align} mb-2 font-medium text-gray-700`}>
           {label}
         </label>
 
         <input
           ref={ref}
           placeholder={placeholder}
-          className={`w-full px-4 placeholder:text-[14] ${paddingY} border ${
-            inputBorderColor ?? "border-orange-500"
-          } ${borderRadius ?? "rounded-[5]"} ${
-            inputBackgroundColor ?? "bg-white"
-          } text-lg focus:outline-none`}
+          className={`w-full px-4 placeholder:text-[14] ${paddingY} border ${inputBorderColor} ${borderRadius} ${inputBackgroundColor} text-lg focus:outline-none`}
           {...props}
         />
 
