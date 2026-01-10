@@ -17,8 +17,8 @@ const CustomInput = React.forwardRef<HTMLInputElement, CustomInputProps>(
     {
       label,
       error,
-      inputBackgroundColor = "bg-white",
-      inputBorderColor = "border-orange-500",
+      inputBackgroundColor,
+      inputBorderColor,
       align = "justify-center",
       paddingY,
       borderRadius = "rounded-[5]",

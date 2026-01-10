@@ -104,8 +104,8 @@ const SignUpPage = () => {
               label="Business Name"
               type="text"
               name="businessName"
-              inputBackgroundColor=""
-              inputBorderColor=""
+              inputBackgroundColor="bg-white"
+              inputBorderColor="border-orange-500"
               value={form.businessName}
               onChange={handleChange}
               error={errors.businessName}
@@ -114,8 +114,8 @@ const SignUpPage = () => {
               label="Address"
               type="text"
               name="address"
-              inputBackgroundColor=""
-              inputBorderColor=""
+              inputBackgroundColor="bg-white"
+              inputBorderColor="border-orange-500"
               value={form.address}
               onChange={handleChange}
               error={errors.address}
@@ -127,8 +127,8 @@ const SignUpPage = () => {
               label="Email Address"
               type="email"
               name="email"
-              inputBackgroundColor=""
-              inputBorderColor=""
+              inputBackgroundColor="bg-white"
+              inputBorderColor="border-orange-500"
               value={form.email}
               onChange={handleChange}
               error={errors.email}
@@ -138,8 +138,8 @@ const SignUpPage = () => {
               label="Phone No."
               type="text"
               name="phone"
-              inputBackgroundColor=""
-              inputBorderColor=""
+              inputBackgroundColor="bg-white"
+              inputBorderColor="border-orange-500"
               value={form.phone}
               onChange={handleChange}
               error={errors.phone}
@@ -151,8 +151,8 @@ const SignUpPage = () => {
               label="Password"
               type="password"
               name="password"
-              inputBackgroundColor=""
-              inputBorderColor=""
+              inputBackgroundColor="bg-white"
+              inputBorderColor="border-orange-500"
               value={form.password}
               onChange={handleChange}
               error={errors.password}
@@ -162,8 +162,8 @@ const SignUpPage = () => {
               label="Confirm Password"
               type="password"
               name="confirmPassword"
-              inputBackgroundColor=""
-              inputBorderColor=""
+              inputBackgroundColor="bg-white"
+              inputBorderColor="border-orange-500"
               value={form.confirmPassword}
               onChange={handleChange}
               error={errors.confirmPassword}

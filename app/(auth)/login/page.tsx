@@ -107,8 +107,8 @@ const LoginPage = () => {
             label="Email Address"
             type="email"
             name="email"
-            inputBackgroundColor=""
-            inputBorderColor=""
+            inputBackgroundColor="bg-white"
+            inputBorderColor="border-orange-500"
             value={form.email}
             onChange={handleChange}
             error={errors.email}
