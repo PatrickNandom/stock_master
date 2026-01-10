@@ -119,8 +119,8 @@ const LoginPage = () => {
             label="Password"
             type="password"
             name="password"
-            inputBackgroundColor=""
-            inputBorderColor=""
+            inputBackgroundColor="bg-white"
+            inputBorderColor="border-orange-500"
             value={form.password}
             onChange={handleChange}
             error={errors.password}
