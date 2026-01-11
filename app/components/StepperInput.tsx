@@ -43,7 +43,7 @@ const StepperInput = ({
             type="text"
             value={value}
             onChange={(e) => onChange(e.target.value)}
-            className="w-full text-center outline-none text-[#1a237e] font-medium"
+            className="w-full text-center h-full outline-none text-[#1a237e] font-medium"
           />
         </div>
 

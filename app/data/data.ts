@@ -119,3 +119,153 @@ export const historyLists: HistoryItem[] = [
     createdAt: "2024-10-01",
   },
 ];
+
+// PRODUCTS DATA
+
+export interface Product {
+  id: string;
+  image: string;
+  name: string;
+  code: string;
+  price: number;
+  stock: number;
+}
+
+export const MOCK_PRODUCTS: Product[] = [
+  {
+    id: "p1",
+    image: "/dashboard_card_sales_icon.svg",
+    name: "Laundry Detergent",
+    code: "001",
+    price: 1500,
+    stock: 40,
+  },
+  {
+    id: "p2",
+    image: "/dashboard_card_sales_icon.svg",
+    name: "Laundry Detergent",
+    code: "001",
+    price: 1500,
+    stock: 50,
+  },
+  {
+    id: "p3",
+    image: "/dashboard_card_sales_icon.svg",
+    name: "Sponges",
+    code: "021",
+    price: 1240,
+    stock: 9,
+  },
+  {
+    id: "p4",
+    image: "/dashboard_card_sales_icon.svg",
+    name: "Sponges",
+    code: "021",
+    price: 1240,
+    stock: 9,
+  },
+  {
+    id: "p5",
+    image: "/dashboard_card_sales_icon.svg",
+    name: "Dish Soap",
+    code: "901",
+    price: 1200,
+    stock: 100,
+  },
+  {
+    id: "p6",
+    image: "/dashboard_card_sales_icon.svg",
+    name: "Hand Sanitizer",
+    code: "083",
+    price: 1500,
+    stock: 59,
+  },
+  {
+    id: "p7",
+    image: "/dashboard_card_sales_icon.svg",
+    name: "Hand Sanitizer",
+    code: "083",
+    price: 1500,
+    stock: 59,
+  },
+  {
+    id: "p8",
+    image: "/dashboard_card_sales_icon.svg",
+    name: "Dustpan",
+    code: "001",
+    price: 1710,
+    stock: 91,
+  },
+  {
+    id: "p9",
+    image: "/dashboard_card_sales_icon.svg",
+    name: "Laundry Detergent",
+    code: "006",
+    price: 1500,
+    stock: 50,
+  },
+  {
+    id: "p10",
+    image: "/dashboard_card_sales_icon.svg",
+    name: "Sponges",
+    code: "021",
+    price: 1540,
+    stock: 50,
+  },
+  {
+    id: "p11",
+    image: "/dashboard_card_sales_icon.svg",
+    name: "Hand Sanitizer",
+    code: "083",
+    price: 1500,
+    stock: 72,
+  },
+  {
+    id: "p12",
+    image: "/dashboard_card_sales_icon.svg",
+    name: "Laundry Detergent",
+    code: "061",
+    price: 1300,
+    stock: 50,
+  },
+  {
+    id: "p13",
+    image: "/dashboard_card_sales_icon.svg",
+    name: "Dustpan",
+    code: "001",
+    price: 1900,
+    stock: 50,
+  },
+  {
+    id: "p14",
+    image: "/dashboard_card_sales_icon.svg",
+    name: "Dustpan",
+    code: "001",
+    price: 1900,
+    stock: 50,
+  },
+  {
+    id: "p15",
+    image: "/dashboard_card_sales_icon.svg",
+    name: "Laundry Detergent",
+    code: "001",
+    price: 1900,
+    stock: 70,
+  },
+  {
+    id: "p16",
+    image: "/dashboard_card_sales_icon.svg",
+    name: "Hand Sanitizer",
+    code: "083",
+    price: 1800,
+    stock: 50,
+  },
+  {
+    id: "p17",
+    image: "/dashboard_card_sales_icon.svg",
+    name: "Sponges",
+    code: "021",
+    price: 2100,
+    stock: 10,
+  },
+];
