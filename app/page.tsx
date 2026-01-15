@@ -1,7 +1,7 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Image from "next/image";
-import FeatureCard from "../components/FeaturedCard";
+import FeatureCard from "./components/FeaturedCard";
 import Link from "next/link";
 const Home = () => {
   return (
