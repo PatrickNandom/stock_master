@@ -1,98 +1,98 @@
-📦 StockMaster
+# StockMaster
 
 StockMaster is a modern inventory and business management system built for small to medium-sized businesses.
 It enables secure product, sales, and staff management with strict multi-tenant data isolation and role-based access control — designed for real operational use.
 
-Features
+## Features
 
-Enterprise-Grade Security
-Multi-tenant data isolation, JWT authentication, and role-based access control.
+- **Enterprise-Grade Security**
+  Multi-tenant data isolation, JWT authentication, and role-based access control.
 
-Business Onboarding
-Fast business registration with automatic owner account creation.
+- **Business Onboarding**
+  Fast business registration with automatic owner account creation.
 
-Staff Management
-Owners can create staff accounts and assign granular roles and permissions.
+- **Staff Management**
+  Owners can create staff accounts and assign granular roles and permissions.
 
-Inventory Management
-Create, update, and manage products with full audit history.
+- **Inventory Management**
+  Create, update, and manage products with full audit history.
 
-Sales Processing
-Automatic stock deductions upon completed sales.
+- **Sales Processing**
+  Automatic stock deductions upon completed sales.
 
-Audit Logs
-Complete history tracking for product adds, updates, and sales.
+- **Audit Logs**
+  Complete history tracking for product adds, updates, and sales.
 
-Technology Stack
+## Technology Stack
 
-Frontend: Next.js (App Router), TypeScript, Tailwind CSS
+- **Frontend:** Next.js (App Router), TypeScript, Tailwind CSS
 
-Backend: Next.js API Routes (Edge Runtime compatible)
+- **Backend:** Next.js API Routes (Edge Runtime compatible)
 
-Database: PostgreSQL
+- **Database:** PostgreSQL
 
-ORM: Prisma
+- **ORM:** Prisma
 
-Authentication: Custom JWT Implementation
+- **Authentication:** Custom JWT Implementation
 
-Environment: Docker (Local Database)
+- **Environment:** Docker (Local Database)
 
-Getting Started
-Prerequisites
+## Getting Started
 
-Node.js 18+
+### Prerequisites
 
-Docker (for PostgreSQL)
+- Node.js 18+
 
-Installation
+- Docker (for PostgreSQL)
 
-Clone the repository:
-git clone https://github.com/PatrickNandom/stock_master.git
+### Installation
 
-Install dependencies:
-npm install
+1. Clone the repository:
+   `git clone https://github.com/PatrickNandom/stock_master.git`
 
-Configure environment variables in a .env file:
+2. Install dependencies:
+   `npm install`
 
-DATABASE_URL="postgresql://user:password@localhost:5433/stockmaster"
-JWT_SECRET="your_ultra_secure_secret"
-NEXT_PUBLIC_API_URL="http://localhost:3000"
+## Configure environment variables in a .env file:
 
-Initialize the database:
-npx prisma migrate dev --name init
+- DATABASE_URL="postgresql://user:password@localhost:5433/stockmaster"
+- JWT_SECRET="your_ultra_secure_secret"
+- NEXT_PUBLIC_API_URL="http://localhost:3000"
 
-Run the application:
-npm run dev
+## Initialize the database:
 
-Visit http://localhost:3000
-to access the dashboard.
+- npx prisma migrate dev --name init
 
-Permissions Overview
+- Run the application:
+- npm run dev
 
-Owner
-Full business settings, staff management, inventory control, audit logs.
+- Visit http://localhost:3000 to access the dashboard.
 
-Admin
-Manage staff, products, sales, and view audit logs.
+## Permissions Overview
 
-Staff
-Create sales only.
+- **Owner**
+- Full business settings, staff management, inventory control, audit logs.
 
-Roadmap
+- **Admin**
+- Manage staff, products, sales, and view audit logs.
 
-Analytics dashboard for sales trends
+- **Staff**
+- Create sales only.
 
-Inventory export to CSV / PDF
+## Roadmap
 
-Low stock email alerts
+- Analytics dashboard for sales trends
 
-Barcode scanning integration
+- Inventory export to CSV / PDF
 
-License
+- Low stock email alerts
 
-MIT License © Nandom Patrick Molshakat
+- Barcode scanning integration
 
-Contact
+## License
 
-For questions or support, open an issue or reach out at [patricknandom82@gmail.com
-].
+- MIT License © Nandom Patrick Molshakat
+
+## Contact
+
+- For questions or support, open an issue or reach out at [patricknandom82@gmail.com].
