@@ -1,9 +1,9 @@
 // src/lib/auth.ts
-import jwt from "jsonwebtoken";
+import jwt, { Secret } from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import { UserRole } from "@prisma/client";
 
-const JWT_SECRET =
+const JWT_SECRET: Secret =
   process.env.JWT_SECRET || "fallback-secret-change-in-production";
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || "7d";
 
