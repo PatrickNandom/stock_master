@@ -1,4 +1,4 @@
-// src/types/index.ts
+//types/index.ts
 import { UserRole, PaymentType, SaleStatus, HistoryType } from "@prisma/client";
 
 // User Types
