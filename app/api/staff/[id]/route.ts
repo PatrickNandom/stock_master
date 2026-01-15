@@ -7,7 +7,7 @@ import { UserRole } from "@prisma/client";
 // PUT update staff role (Only OWNER)
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const authResult = requireAuth(request, [UserRole.OWNER]);
@@ -17,7 +17,7 @@ export async function PUT(
     }
 
     const { businessId } = authResult.user;
-    const { id } = params;
+    const { id } = await params;
     const body = await request.json();
     const { role } = body;
 
@@ -80,7 +80,7 @@ export async function PUT(
 // DELETE staff (Only OWNER)
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const authResult = requireAuth(request, [UserRole.OWNER]);
@@ -90,7 +90,7 @@ export async function DELETE(
     }
 
     const { businessId } = authResult.user;
-    const { id } = params;
+    const { id } = await params;
 
     // Check if user exists and belongs to the business
     const existingUser = await prisma.user.findFirst({

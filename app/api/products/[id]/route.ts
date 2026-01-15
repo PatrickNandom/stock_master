@@ -1,4 +1,4 @@
-// src/app/api/products/[id]/route.ts
+// app/api/products/[id]/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireAuth } from "@/lib/middleware";
@@ -7,23 +7,18 @@ import { UserRole } from "@prisma/client";
 // GET single product
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const authResult = requireAuth(request);
-
     if (!authResult.authorized || !authResult.user) {
       return authResult.response!;
     }
-
     const { businessId } = authResult.user;
-    const { id } = params;
+    const { id } = await params; // ← Added await here
 
     const product = await prisma.product.findFirst({
-      where: {
-        id,
-        businessId,
-      },
+      where: { id, businessId },
     });
 
     if (!product) {
@@ -40,24 +35,21 @@ export async function GET(
   }
 }
 
-// PUT update product (Only OWNER and ADMIN)
+// PUT update product
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const authResult = requireAuth(request, [UserRole.OWNER, UserRole.ADMIN]);
-
     if (!authResult.authorized || !authResult.user) {
       return authResult.response!;
     }
-
     const { businessId } = authResult.user;
-    const { id } = params;
+    const { id } = await params; // ← Added await here
     const body = await request.json();
     const { name, price, quantity, image, description } = body;
 
-    // Check if product exists
     const existingProduct = await prisma.product.findFirst({
       where: { id, businessId },
     });
@@ -66,7 +58,6 @@ export async function PUT(
       return NextResponse.json({ error: "Product not found" }, { status: 404 });
     }
 
-    // Validation
     if (price !== undefined && price < 0) {
       return NextResponse.json(
         { error: "Price must be non-negative" },
@@ -92,7 +83,6 @@ export async function PUT(
       },
     });
 
-    // Create history entry
     await prisma.history.create({
       data: {
         type: "UPDATED",
@@ -103,10 +93,7 @@ export async function PUT(
     });
 
     return NextResponse.json(
-      {
-        message: "Product updated successfully",
-        product,
-      },
+      { message: "Product updated successfully", product },
       { status: 200 }
     );
   } catch (error) {
@@ -118,20 +105,18 @@ export async function PUT(
   }
 }
 
-// DELETE product (Only OWNER and ADMIN)
+// DELETE product
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const authResult = requireAuth(request, [UserRole.OWNER, UserRole.ADMIN]);
-
     if (!authResult.authorized || !authResult.user) {
       return authResult.response!;
     }
-
     const { businessId } = authResult.user;
-    const { id } = params;
+    const { id } = await params; // ← Added await here
 
     const product = await prisma.product.findFirst({
       where: { id, businessId },
@@ -141,10 +126,7 @@ export async function DELETE(
       return NextResponse.json({ error: "Product not found" }, { status: 404 });
     }
 
-    await prisma.product.delete({
-      where: { id },
-    });
-
+    await prisma.product.delete({ where: { id } });
     return NextResponse.json(
       { message: "Product deleted successfully" },
       { status: 200 }
