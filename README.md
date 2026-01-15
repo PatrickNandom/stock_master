@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📦 StockMaster
+
+StockMaster is a modern inventory and business management system built for small to medium-sized businesses.
+It enables secure product, sales, and staff management with strict multi-tenant data isolation and role-based access control — designed for real operational use.
+
+---
+
+## Features
+
+- **Enterprise-Grade Security**
+  Multi-tenant data isolation, JWT authentication, and role-based access control.
+
+- **Business Onboarding**
+  Fast business registration with automatic owner account creation.
+
+- **Staff Management**
+  Owners can create staff accounts and assign granular roles and permissions.
+
+- **Inventory Management**
+  Create, update, and manage products with full audit history.
+
+- **Sales Processing**
+  Automatic stock deductions upon completed sales.
+
+- **Audit Logs**
+  Complete history tracking for product adds, updates, and sales.
+
+---
+
+## Technology Stack
+
+- **Frontend:** Next.js (App Router), TypeScript, Tailwind CSS
+
+- **Backend:** Next.js API Routes (Edge Runtime compatible)
+
+- **Database:** PostgreSQL
+
+- **ORM:** Prisma
+
+- **Authentication:** Custom JWT Implementation
+
+- **Environment:** Docker (Local Database)
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js 18+
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Docker (for PostgreSQL)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Clone the repository:
+   `git clone https://github.com/PatrickNandom/stock_master.git`
 
-## Learn More
+2. Install dependencies:
+   `npm install`
 
-To learn more about Next.js, take a look at the following resources:
+## Configure environment variables in a .env file:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- DATABASE_URL="postgresql://user:password@localhost:5433/stockmaster"
+- JWT_SECRET="your_ultra_secure_secret"
+- NEXT_PUBLIC_API_URL="http://localhost:3000"
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Initialize the database:
 
-## Deploy on Vercel
+- npx prisma migrate dev --name init
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Run the application:
+- npm run dev
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Visit http://localhost:3000 to access the dashboard.
+
+## Permissions Overview
+
+- **Owner**
+- Full business settings, staff management, inventory control, audit logs.
+
+- **Admin**
+- Manage staff, products, sales, and view audit logs.
+
+- **Staff**
+- Create sales only.
+
+---
+
+## Roadmap
+
+- Analytics dashboard for sales trends
+
+- Inventory export to CSV / PDF
+
+- Low stock email alerts
+
+- Barcode scanning integration
+
+---
+
+## License
+
+MIT License © Nandom Patrick Molshakat
+
+---
+
+## Contact
+
+- For questions or support, open an issue or reach out at [patricknandom82@gmail.com].
