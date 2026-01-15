@@ -2,7 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireAuth } from "@/lib/middleware";
-import { UserRole, PaymentType, SaleStatus } from "@prisma/client";
+import { PaymentType, SaleStatus } from "@prisma/client";
 
 // GET all sales (filtered by role)
 export async function GET(request: NextRequest) {
@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
       return authResult.response!;
     }
 
-    const { businessId, role, userId } = authResult.user;
+    const { businessId } = authResult.user;
 
     // STAFF can only see their own sales
     // OWNER and ADMIN can see all sales
@@ -158,10 +158,11 @@ export async function POST(request: NextRequest) {
       },
       { status: 201 }
     );
-  } catch (error: any) {
-    console.error("Create sale error:", error);
+  } catch (error) {
+    const err = error as Error;
+    console.error("Create sale error:", err);
     return NextResponse.json(
-      { error: error.message || "Internal server error" },
+      { error: err.message || "Internal server error" },
       { status: 500 }
     );
   }

@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
     const history = await prisma.history.findMany({
       where: {
         businessId,
-        ...(type && { type: type as any }),
+        ...(type && { type: type as "ADDED" | "UPDATED" | "SOLD" }),
         ...(productId && { productId }),
       },
       orderBy: { id: "desc" },
