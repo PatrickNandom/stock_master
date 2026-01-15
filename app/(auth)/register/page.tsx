@@ -99,6 +99,18 @@ const SignUpPage = () => {
           Sign Up
         </h1>
         <div className="w-full flex flex-col justify-center items-center">
+          {/* <div className="">
+            <CustomInput
+              label="Owner Name"
+              type="text"
+              name="ownerName"
+              inputBackgroundColor="bg-white"
+              inputBorderColor="border-orange-500"
+              value={form.ownerName}
+              onChange={handleChange}
+              error={errors.ownerName}
+            />
+          </div> */}
           <div className="flex flex-col sm:flex-row sm:justify-center sm:gap-4 w-full mb-4">
             <CustomInput
               label="Business Name"

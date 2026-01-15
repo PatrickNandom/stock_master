@@ -11,9 +11,8 @@ const schema = z.object({
   email: z
     .string()
     .nonempty("Email is required")
-    .refine((val) => val === "" || /^\S+@\S+\.\S+$/.test(val), {
-      message: "Invalid email address",
-    }),
+    .email("Invalid email address"),
+
   password: z.string().nonempty("Password is required"),
 });
 
