@@ -121,7 +121,6 @@ export const historyLists: HistoryItem[] = [
 ];
 
 // PRODUCTS DATA
-
 export interface Product {
   id: string;
   image: string;

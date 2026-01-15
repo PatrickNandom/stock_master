@@ -13,7 +13,7 @@ interface Product {
 const ProductRow = ({ product }: { product: Product }) => {
   return (
     <div className="flex items-center justify-between bg-[#D9DEE6] rounded-xl p-3 mb-3 shadow-sm">
-      <div className="w-12 h-12 bg-[#000000] rounded-lg flex items-center justify-center overflow-hidden">
+      <div className="w-12 h-12 hidden  bg-[#000000] rounded-lg sm:flex items-center justify-center overflow-hidden">
         <Image
           src={product.image}
           alt={product.name}

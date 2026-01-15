@@ -1,6 +1,6 @@
-import "../globals.css";
-import Sidebar from "../components/Sidebar";
-import Topbar from "../components/Topbar";
+import "@/app/globals.css";
+import Sidebar from "@/app/components/Sidebar";
+import Topbar from "@/app/components/Topbar";
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
