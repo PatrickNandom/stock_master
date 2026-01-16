@@ -66,7 +66,7 @@ It enables secure product, sales, and staff management with strict multi-tenant 
 - Run the application:
 - npm run dev
 
-- Visit https://github.com/PatrickNandom/stock_master to access the dashboard.
+- Visit [https://stock-master-ehfe.vercel.app/] to access the dashboard.
 
 ## Permissions Overview
 
