@@ -57,7 +57,7 @@ It enables secure product, sales, and staff management with strict multi-tenant 
 
 - DATABASE_URL="postgresql://user:password@localhost:5433/stockmaster"
 - JWT_SECRET="your_ultra_secure_secret"
-- NEXT_PUBLIC_API_URL="http://localhost:3000"
+- NEXT_PUBLIC_API_URL=[link]
 
 ## Initialize the database:
 
@@ -66,7 +66,7 @@ It enables secure product, sales, and staff management with strict multi-tenant 
 - Run the application:
 - npm run dev
 
-- Visit http://localhost:3000 to access the dashboard.
+- Visit https://github.com/PatrickNandom/stock_master to access the dashboard.
 
 ## Permissions Overview
 
