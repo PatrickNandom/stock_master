@@ -1,4 +1,4 @@
-# StockMaster
+# 📦 StockMaster
 
 StockMaster is a modern inventory and business management system built for small to medium-sized businesses.
 It enables secure product, sales, and staff management with strict multi-tenant data isolation and role-based access control — designed for real operational use.
