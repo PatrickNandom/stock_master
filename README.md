@@ -87,8 +87,6 @@ It enables secure product, sales, and staff management with strict multi-tenant 
 
 - Low stock email alerts
 
-- Barcode scanning integration
-
 ## License
 
 - MIT License © Nandom Patrick Molshakat
