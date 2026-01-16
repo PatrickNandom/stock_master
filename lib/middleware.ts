@@ -1,4 +1,4 @@
-// src/lib/middleware.ts
+// app/lib/middleware.ts
 import { NextRequest, NextResponse } from "next/server";
 import { verifyToken, extractToken, JWTPayload } from "./auth";
 import { UserRole } from "@prisma/client";

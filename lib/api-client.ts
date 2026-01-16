@@ -1,4 +1,4 @@
-// src/lib/api-client.ts
+// app/lib/api-client.ts
 import {
   AuthResponse,
   RegisterForm,
