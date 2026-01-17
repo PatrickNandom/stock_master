@@ -1,10 +1,10 @@
 "use client";
-import CustomInput from "@/app/components/CustomInput ";
 import React, { useState } from "react";
 import Image from "next/image";
 import { z } from "zod";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import CustomInput from "@/app/components/CustomInput ";
 
 // Validation schema
 const schema = z
@@ -14,9 +14,7 @@ const schema = z
     email: z
       .string()
       .nonempty("Email is required")
-      .refine((val) => val === "" || /^\S+@\S+\.\S+$/.test(val), {
-        message: "Invalid email address",
-      }),
+      .email("Invalid email address"),
     phone: z.string().nonempty("Phone number is required"),
     password: z
       .string()
@@ -43,16 +41,19 @@ const SignUpPage = () => {
   });
 
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>(
-    {}
+    {},
   );
+  const [isLoading, setIsLoading] = useState(false);
+  const [apiError, setApiError] = useState<string>("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: undefined }));
+    setApiError(""); // Clear API error when user types
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = schema.safeParse(form);
 
@@ -65,10 +66,51 @@ const SignUpPage = () => {
         }
       }
       setErrors(fieldErrors);
-    } else {
-      setErrors({});
-      console.log("Valid data:", result.data);
-      // TODO: Submit to backend
+      return;
+    }
+
+    // Clear errors and start loading
+    setErrors({});
+    setApiError("");
+    setIsLoading(true);
+
+    try {
+      // Call the registration API
+      const response = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          businessName: result.data.businessName,
+          address: result.data.address,
+          email: result.data.email,
+          phone: result.data.phone,
+          password: result.data.password,
+          confirmPassword: result.data.confirmPassword,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        // Handle API errors
+        setApiError(
+          data.error.message || "Registration failed. Please try again.",
+        );
+        return;
+      }
+
+      // Registration successful
+      console.log("Registration successful:", data);
+
+      // Redirect to dashboard
+      router.push("/dashboard");
+    } catch (error) {
+      console.error("Registration error:", error);
+      setApiError("An unexpected error occurred. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -98,19 +140,15 @@ const SignUpPage = () => {
         <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-10">
           Sign Up
         </h1>
+
+        {/* Display API Error */}
+        {apiError && (
+          <div className="w-full mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+            {apiError}
+          </div>
+        )}
+
         <div className="w-full flex flex-col justify-center items-center">
-          {/* <div className="">
-            <CustomInput
-              label="Owner Name"
-              type="text"
-              name="ownerName"
-              inputBackgroundColor="bg-white"
-              inputBorderColor="border-orange-500"
-              value={form.ownerName}
-              onChange={handleChange}
-              error={errors.ownerName}
-            />
-          </div> */}
           <div className="flex flex-col sm:flex-row sm:justify-center sm:gap-4 w-full mb-4">
             <CustomInput
               label="Business Name"
@@ -121,6 +159,7 @@ const SignUpPage = () => {
               value={form.businessName}
               onChange={handleChange}
               error={errors.businessName}
+              disabled={isLoading}
             />
             <CustomInput
               label="Address"
@@ -131,6 +170,7 @@ const SignUpPage = () => {
               value={form.address}
               onChange={handleChange}
               error={errors.address}
+              disabled={isLoading}
             />
           </div>
 
@@ -145,6 +185,7 @@ const SignUpPage = () => {
               onChange={handleChange}
               error={errors.email}
               autoComplete="email"
+              disabled={isLoading}
             />
             <CustomInput
               label="Phone No."
@@ -155,6 +196,7 @@ const SignUpPage = () => {
               value={form.phone}
               onChange={handleChange}
               error={errors.phone}
+              disabled={isLoading}
             />
           </div>
 
@@ -169,6 +211,7 @@ const SignUpPage = () => {
               onChange={handleChange}
               error={errors.password}
               autoComplete="new-password"
+              disabled={isLoading}
             />
             <CustomInput
               label="Confirm Password"
@@ -180,15 +223,17 @@ const SignUpPage = () => {
               onChange={handleChange}
               error={errors.confirmPassword}
               autoComplete="new-password"
+              disabled={isLoading}
             />
           </div>
         </div>
 
         <button
           type="submit"
-          className="min-w-[130] min-h-[38] bg-coral cursor-pointer text-white rounded-lg px-6 text-sm font-medium hover:opacity-90 transition mt-4"
+          disabled={isLoading}
+          className="min-w-[130] min-h-[38] bg-coral cursor-pointer text-white rounded-lg px-6 text-sm font-medium hover:opacity-90 transition mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Confirm
+          {isLoading ? "Creating Account..." : "Confirm"}
         </button>
 
         <div className="my-8">

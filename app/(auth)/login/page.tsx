@@ -2,19 +2,8 @@
 import CustomInput from "@/app/components/CustomInput ";
 import React, { useState } from "react";
 import Image from "next/image";
-import { z } from "zod";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-
-// Define schema
-const schema = z.object({
-  email: z
-    .string()
-    .nonempty("Email is required")
-    .email("Invalid email address"),
-
-  password: z.string().nonempty("Password is required"),
-});
+import { LoginInput, loginSchema } from "@/lib/validations/auth";
 
 type FormData = {
   email: string;
@@ -27,8 +16,10 @@ const LoginPage = () => {
   const [form, setForm] = useState<FormData>({ email: "", password: "" });
   // Error state
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>(
-    {}
+    {},
   );
+  const [isLoading, setIsLoading] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
 
   // Handle input change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,29 +38,70 @@ const LoginPage = () => {
   };
 
   // Handle form submit
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setServerError(null);
 
-    const result = schema.safeParse(form);
+    const result = loginSchema.safeParse(form);
 
     if (!result.success) {
-      // Map errors from zod
-      const fieldErrors: Partial<Record<keyof FormData, string>> = {};
-      for (const issue of result.error.issues) {
-        const key = issue.path[0];
-        if (key && typeof key === "string") {
-          fieldErrors[key as keyof FormData] = issue.message;
-        }
-      }
+      const fieldErrors: Partial<Record<keyof LoginInput, string>> = {};
+      result.error.issues.forEach((issue) => {
+        const key = issue.path[0] as keyof LoginInput;
+        fieldErrors[key] = issue.message;
+      });
       setErrors(fieldErrors);
       return;
     }
 
-    // Validation passed
-    console.log("Form data is valid:", form);
+    setIsLoading(true);
 
-    // TODO: Submit to backend when ready
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(result.data),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Login failed");
+      }
+
+      router.push("/dashboard");
+      router.refresh();
+    } catch (err: unknown) {
+      setServerError(
+        err instanceof Error ? err.message : "An unexpected error occurred",
+      );
+    } finally {
+      setIsLoading(false);
+    }
   };
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+
+  //   const result = schema.safeParse(form);
+
+  //   if (!result.success) {
+  //     // Map errors from zod
+  //     const fieldErrors: Partial<Record<keyof FormData, string>> = {};
+  //     for (const issue of result.error.issues) {
+  //       const key = issue.path[0];
+  //       if (key && typeof key === "string") {
+  //         fieldErrors[key as keyof FormData] = issue.message;
+  //       }
+  //     }
+  //     setErrors(fieldErrors);
+  //     return;
+  //   }
+
+  //   // Validation passed
+  //   console.log("Form data is valid:", form);
+
+  //   // TODO: Submit to backend when ready
+  // };
 
   return (
     <main className="px-8 min-h-screen flex items-center justify-center bg-linear-to-r from-[#F7AB97] to-[#071548]">
@@ -100,6 +132,12 @@ const LoginPage = () => {
         <h1 className="text-lg sm:text-lg md:text-2xl lg:text-3xl font-semibold mb-6">
           Login
         </h1>
+        {/* 1. Add this above the input fields or at the top of the form */}
+        {serverError && (
+          <div className="w-full p-3 mb-4 text-sm text-red-600 bg-red-100 border border-red-200 rounded-lg text-center">
+            {serverError}
+          </div>
+        )}
 
         <div className="w-full max-w-md space-y-4">
           <CustomInput
@@ -127,14 +165,22 @@ const LoginPage = () => {
             required
           />
         </div>
-        <Link href="/dashboard">
+        {/* 2. Replace the <Link href="/dashboard"> block with just this button */}
+        <button
+          type="submit"
+          disabled={isLoading}
+          className="min-w-[130] min-h-[38] bg-coral disabled:bg-gray-400 cursor-pointer text-white rounded-lg px-6 text-sm font-medium hover:opacity-90 transition mt-6"
+        >
+          {isLoading ? "Authenticating..." : "Confirm"}
+        </button>
+        {/* <Link href="/dashboard">
           <button
             type="submit"
             className="min-w-[130] min-h-[38] bg-coral cursor-pointer text-white rounded-lg px-6 text-sm font-medium hover:opacity-90 transition mt-6"
           >
             Confirm
           </button>
-        </Link>
+        </Link> */}
 
         <div className="my-8">
           <p className="font-medium text-gray-700">Forgotten password?</p>
