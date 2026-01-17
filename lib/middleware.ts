@@ -21,7 +21,7 @@ export function authenticate(request: NextRequest): {
       authorized: false,
       response: NextResponse.json(
         { error: "Unauthorized. No token provided." },
-        { status: 401 }
+        { status: 401 },
       ),
     };
   }
@@ -33,7 +33,7 @@ export function authenticate(request: NextRequest): {
       authorized: false,
       response: NextResponse.json(
         { error: "Unauthorized. Invalid or expired token." },
-        { status: 401 }
+        { status: 401 },
       ),
     };
   }
@@ -44,7 +44,7 @@ export function authenticate(request: NextRequest): {
 // Check if user has required role
 export function authorizeRoles(
   user: JWTPayload,
-  allowedRoles: UserRole[]
+  allowedRoles: UserRole[],
 ): boolean {
   return allowedRoles.includes(user.role);
 }
@@ -52,7 +52,7 @@ export function authorizeRoles(
 // Combined middleware: authenticate + authorize
 export function requireAuth(
   request: NextRequest,
-  allowedRoles?: UserRole[]
+  allowedRoles?: UserRole[],
 ): {
   authorized: boolean;
   user?: JWTPayload;
@@ -70,7 +70,7 @@ export function requireAuth(
       authorized: false,
       response: NextResponse.json(
         { error: "Forbidden. Insufficient permissions." },
-        { status: 403 }
+        { status: 403 },
       ),
     };
   }

@@ -46,7 +46,7 @@ export interface SaleItem {
     name: string;
   };
 }
-
+// Sale
 export interface Sale {
   id: string;
   totalAmount: number;

@@ -1,4 +1,98 @@
-// Enums Here
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+model User {
+  id         String   @id @default(uuid())
+  email      String   @unique
+  password   String
+  name       String?
+  role       UserRole @default(STAFF)
+  businessId String
+  createdAt  DateTime @default(now())
+  business   Business @relation(fields: [businessId], references: [id])
+
+  @@map("users")
+}
+
+model Business {
+  id        String    @id @default(uuid())
+  name      String
+  address   String?
+  email     String    @unique
+  phone     String?
+  password  String
+  createdAt DateTime  @default(now())
+  history   History[]
+  products  Product[]
+  sales     Sale[]
+  users     User[]
+
+  @@map("businesses")
+}
+
+model Product {
+  id          String     @id @default(uuid())
+  name        String
+  price       Float
+  quantity    Int        @default(0)
+  image       String?
+  description String?
+  businessId  String
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  business    Business   @relation(fields: [businessId], references: [id])
+  saleItems   SaleItem[]
+
+  @@map("products")
+}
+
+model Sale {
+  id          String      @id @default(uuid())
+  totalAmount Float
+  businessId  String
+  createdAt   DateTime    @default(now())
+  paymentType PaymentType
+  status      SaleStatus
+  business    Business    @relation(fields: [businessId], references: [id])
+  items       SaleItem[]
+
+  @@map("sales")
+}
+
+model SaleItem {
+  id          String  @id @default(uuid())
+  saleId      String
+  productId   String
+  quantity    Int
+  priceAtSale Float
+  product     Product @relation(fields: [productId], references: [id])
+  sale        Sale    @relation(fields: [saleId], references: [id])
+
+  @@map("sale_items")
+}
+
+model History {
+  id          String      @id @default(uuid())
+  description String
+  productId   String?
+  businessId  String
+  type        HistoryType
+  createdAt   DateTime    @default(now())
+  business    Business    @relation(fields: [businessId], references: [id])
+
+  @@map("histories")
+}
+
 enum HistoryType {
   ADDED
   UPDATED
@@ -19,84 +113,4 @@ enum UserRole {
   OWNER
   ADMIN
   STAFF
-}
-
-
-generator client {
-  provider = "prisma-client-js"
-}
-
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-
-}
-
-model User {
-  id          String   @id @default(uuid())
-  email       String   @unique
-  password    String
-  name        String?
-  role        UserRole @default(STAFF)
-  businessId  String
-  business    Business @relation(fields: [businessId], references: [id])
-  createdAt   DateTime @default(now())
-}
-
-model Business {
-  id           String    @id @default(uuid())
-  name         String
-  address      String?
-  email        String    @unique
-  phone        String?
-  password     String
-  products     Product[]
-  sales        Sale[]
-  history      History[]
-  users        User[]
-  createdAt    DateTime  @default(now())
-}
-
-model Product {
-  id          String   @id @default(uuid())
-  name        String
-  price       Float
-  quantity    Int      @default(0)
-  image       String?  
-  description String?
-  businessId  String
-  business    Business @relation(fields: [businessId], references: [id])
-  saleItems   SaleItem[]
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-}
-
-model Sale {
-  id           String     @id @default(uuid())
-  totalAmount  Float
-  paymentType  PaymentType    
-  status       SaleStatus    
-  businessId   String
-  business     Business   @relation(fields: [businessId], references: [id])
-  items        SaleItem[]
-  createdAt    DateTime   @default(now())
-}
-
-model SaleItem {
-  id        String  @id @default(uuid())
-  saleId    String
-  productId String
-  quantity  Int
-  priceAtSale Float 
-  sale      Sale    @relation(fields: [saleId], references: [id])
-  product   Product @relation(fields: [productId], references: [id])
-}
-
-model History {
-  id          String   @id @default(uuid())
-  type        HistoryType  
-  description String   // E.g., "Product ID: 3456V was recently Sold"
-  productId   String?
-  businessId  String
-  business    Business @relation(fields: [businessId], references: [id])
-}
+} 
