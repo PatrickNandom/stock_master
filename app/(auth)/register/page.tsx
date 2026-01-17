@@ -5,6 +5,7 @@ import { z } from "zod";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import CustomInput from "@/app/components/CustomInput ";
+import PrimaryButton from "@/app/components/PrimaryButton";
 
 // Validation schema
 const schema = z
@@ -50,7 +51,7 @@ const SignUpPage = () => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: undefined }));
-    setApiError(""); // Clear API error when user types
+    setApiError("");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -69,13 +70,11 @@ const SignUpPage = () => {
       return;
     }
 
-    // Clear errors and start loading
     setErrors({});
     setApiError("");
     setIsLoading(true);
 
     try {
-      // Call the registration API
       const response = await fetch("/api/auth/register", {
         method: "POST",
         headers: {
@@ -94,17 +93,14 @@ const SignUpPage = () => {
       const data = await response.json();
 
       if (!response.ok) {
-        // Handle API errors
         setApiError(
           data.error.message || "Registration failed. Please try again.",
         );
         return;
       }
 
-      // Registration successful
       console.log("Registration successful:", data);
 
-      // Redirect to dashboard
       router.push("/dashboard");
     } catch (error) {
       console.error("Registration error:", error);
@@ -141,7 +137,6 @@ const SignUpPage = () => {
           Sign Up
         </h1>
 
-        {/* Display API Error */}
         {apiError && (
           <div className="w-full mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg">
             {apiError}
@@ -228,13 +223,7 @@ const SignUpPage = () => {
           </div>
         </div>
 
-        <button
-          type="submit"
-          disabled={isLoading}
-          className="min-w-[130] min-h-[38] bg-coral cursor-pointer text-white rounded-lg px-6 text-sm font-medium hover:opacity-90 transition mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {isLoading ? "Creating Account..." : "Confirm"}
-        </button>
+        <PrimaryButton label="Confirm" isLoading={isLoading} type="submit" />
 
         <div className="my-8">
           <p className="font-medium text-gray-700">Already have an account?</p>

@@ -1,0 +1,10 @@
+<svg id="Logout--Streamline-Carbon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="16" width="16">
+  <desc>
+    Logout Streamline Icon: https://streamlinehq.com
+  </desc>
+  <defs></defs>
+  <title>logout</title>
+  <path d="M3 15h6a1.00115 1.00115 0 0 0 1 -1v-1.5h-1v1.5H3V2h6v1.5h1V2a1.00115 1.00115 0 0 0 -1 -1H3a1.00115 1.00115 0 0 0 -1 1v12a1.00115 1.00115 0 0 0 1 1Z" fill="#000000" stroke-width="0.5"></path>
+  <path d="M10.293 10.293 12.086 8.5 5 8.5l0 -1 7.086 0 -1.793 -1.793L11 5l3 3 -3 3 -0.707 -0.707z" fill="#000000" stroke-width="0.5"></path>
+  <path id="_Transparent_Rectangle_" d="M0 0h16v16H0Z" fill="none" stroke-width="0.5"></path>
+</svg>

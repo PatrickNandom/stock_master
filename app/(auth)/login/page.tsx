@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { LoginInput, loginSchema } from "@/lib/validations/auth";
+import PrimaryButton from "@/app/components/PrimaryButton";
+import Link from "next/link";
 
 type FormData = {
   email: string;
@@ -12,16 +14,13 @@ type FormData = {
 
 const LoginPage = () => {
   const router = useRouter();
-  // Form state
   const [form, setForm] = useState<FormData>({ email: "", password: "" });
-  // Error state
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>(
     {},
   );
   const [isLoading, setIsLoading] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
-
-  // Handle input change
+  //handle change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
@@ -30,7 +29,6 @@ const LoginPage = () => {
       [name]: value,
     }));
 
-    // Clear error for this field on change
     setErrors((prev) => ({
       ...prev,
       [name]: undefined,
@@ -79,30 +77,6 @@ const LoginPage = () => {
       setIsLoading(false);
     }
   };
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-
-  //   const result = schema.safeParse(form);
-
-  //   if (!result.success) {
-  //     // Map errors from zod
-  //     const fieldErrors: Partial<Record<keyof FormData, string>> = {};
-  //     for (const issue of result.error.issues) {
-  //       const key = issue.path[0];
-  //       if (key && typeof key === "string") {
-  //         fieldErrors[key as keyof FormData] = issue.message;
-  //       }
-  //     }
-  //     setErrors(fieldErrors);
-  //     return;
-  //   }
-
-  //   // Validation passed
-  //   console.log("Form data is valid:", form);
-
-  //   // TODO: Submit to backend when ready
-  // };
-
   return (
     <main className="px-8 min-h-screen flex items-center justify-center bg-linear-to-r from-[#F7AB97] to-[#071548]">
       <form
@@ -110,14 +84,16 @@ const LoginPage = () => {
         onSubmit={handleSubmit}
         noValidate
       >
-        <Image
-          src="/stockmaster_logo.svg"
-          className="hidden sm:block sm:mb-4"
-          alt="App logo"
-          width={150}
-          height={150}
-          loading="eager"
-        />
+        <Link href="/">
+          <Image
+            src="/stockmaster_logo.svg"
+            className="hidden sm:block sm:mb-4"
+            alt="App logo"
+            width={150}
+            height={150}
+            loading="eager"
+          />
+        </Link>
 
         <Image
           src="/auth_left-arrow.svg"
@@ -132,7 +108,7 @@ const LoginPage = () => {
         <h1 className="text-lg sm:text-lg md:text-2xl lg:text-3xl font-semibold mb-6">
           Login
         </h1>
-        {/* 1. Add this above the input fields or at the top of the form */}
+
         {serverError && (
           <div className="w-full p-3 mb-4 text-sm text-red-600 bg-red-100 border border-red-200 rounded-lg text-center">
             {serverError}
@@ -165,22 +141,8 @@ const LoginPage = () => {
             required
           />
         </div>
-        {/* 2. Replace the <Link href="/dashboard"> block with just this button */}
-        <button
-          type="submit"
-          disabled={isLoading}
-          className="min-w-[130] min-h-[38] bg-coral disabled:bg-gray-400 cursor-pointer text-white rounded-lg px-6 text-sm font-medium hover:opacity-90 transition mt-6"
-        >
-          {isLoading ? "Authenticating..." : "Confirm"}
-        </button>
-        {/* <Link href="/dashboard">
-          <button
-            type="submit"
-            className="min-w-[130] min-h-[38] bg-coral cursor-pointer text-white rounded-lg px-6 text-sm font-medium hover:opacity-90 transition mt-6"
-          >
-            Confirm
-          </button>
-        </Link> */}
+
+        <PrimaryButton label="Confirm" isLoading={isLoading} type="submit" />
 
         <div className="my-8">
           <p className="font-medium text-gray-700">Forgotten password?</p>

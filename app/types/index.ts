@@ -89,6 +89,15 @@ export interface AuthResponse {
     businessName: string;
   };
 }
+// Links
+
+export interface NavLink {
+  label: string;
+  href: string;
+  iconPath: string;
+  isLogout?: boolean;
+}
+
 
 export interface ApiError {
   error: string;

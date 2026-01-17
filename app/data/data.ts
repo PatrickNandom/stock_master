@@ -1,3 +1,46 @@
+import { NavLink } from "../types";
+
+// LINKS DATA
+export const links: NavLink[] = [
+  {
+    label: "Dashboard",
+    href: "/dashboard",
+    iconPath: "/dashboard_nav_icon.svg",
+  },
+  {
+    label: "Sales",
+    href: "/dashboard/sales",
+    iconPath: "/dashboard_nav_sales_icon.svg",
+  },
+  {
+    label: "Items",
+    href: "/dashboard/items",
+    iconPath: "/dashboard_nav_items_icon.svg",
+  },
+  {
+    label: "Notifications",
+    href: "/dashboard/notifications",
+    iconPath: "/dashboard_nav_notification_icon.svg",
+  },
+  {
+    label: "History",
+    href: "/dashboard/history",
+    iconPath: "/dashboard_nav_history_icon.svg",
+  },
+  {
+    label: "Store Profile",
+    href: "/dashboard/store-profile",
+    iconPath: "/dashboard_nav_store_profile_icon.svg",
+  },
+
+  {
+    label: "Logout",
+    href: "/",
+    iconPath: "/Logout-icon.svg",
+    isLogout: true,
+  },
+];
+
 //STORE PROFILE DATA
 
 export type AppDataType = "sold" | "updated" | "added";
