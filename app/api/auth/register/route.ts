@@ -11,11 +11,15 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    // Add ownerName (same as businessName) and confirmPassword for validation
+    console.log(
+      "SECRET CHECK:",
+      process.env.AUTH_SECRET ? "Exists" : "MISSING",
+    );
+
     const dataToValidate = {
       ...body,
-      ownerName: body.businessName, // Use businessName as ownerName
-      confirmPassword: body.password, // Use password as confirmPassword
+      ownerName: body.businessName,
+      confirmPassword: body.password,
     };
 
     // Validate input
@@ -29,7 +33,7 @@ export async function POST(request: Request) {
     if (existingBusiness) {
       return NextResponse.json<ApiError>(
         { error: "Business with this email already exists" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -41,7 +45,7 @@ export async function POST(request: Request) {
     if (existingUser) {
       return NextResponse.json<ApiError>(
         { error: "User with this email already exists" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -105,7 +109,7 @@ export async function POST(request: Request) {
     if (error instanceof ZodError) {
       return NextResponse.json<ApiError>(
         { error: error.message || "Validation failed" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -114,14 +118,14 @@ export async function POST(request: Request) {
       if (error.code === "P2002") {
         return NextResponse.json<ApiError>(
           { error: "Email already exists" },
-          { status: 400 }
+          { status: 400 },
         );
       }
     }
 
     return NextResponse.json<ApiError>(
       { error: "Registration failed. Please try again." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
