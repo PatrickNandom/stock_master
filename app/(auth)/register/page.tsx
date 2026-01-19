@@ -93,9 +93,7 @@ const SignUpPage = () => {
       const data = await response.json();
 
       if (!response.ok) {
-        setApiError(
-          data.error.message || "Registration failed. Please try again.",
-        );
+        setApiError(data.error.message);
         return;
       }
 
