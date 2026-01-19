@@ -27,7 +27,6 @@ const Sidebar = () => {
         throw new Error("Logout failed");
       }
 
-      // Redirect to login page
       router.push("/login");
       router.refresh();
     } catch (error) {
@@ -52,41 +51,10 @@ const Sidebar = () => {
         </Link>
         <button className=" text-white text-2xl font-bold">☰</button>
       </div>
-
-      {/* <nav className="space-y-2 px-4">
-        {links.map((link) => {
-          const isActive = pathname === link.href;
-
-          return (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`px-4 py-2 rounded sm:flex sm:items-center sm:gap-8 sm:font-medium block transition-colors ${
-                isActive
-                  ? "bg-slate text-white"
-                  : "text-gray-700 hover:bg-gray-100"
-              }`}
-            >
-              <div
-                className="w-5 h-5"
-                style={{
-                  maskImage: `url(${link.iconPath})`,
-                  WebkitMaskImage: `url(${link.iconPath})`,
-                  maskSize: "contain",
-                  maskRepeat: "no-repeat",
-                  backgroundColor: isActive ? "#F7AB97" : "#374151",
-                }}
-              />
-              {link.label}
-            </Link>
-          );
-        })}
-      </nav> */}
       <nav className="space-y-2 px-4">
         {links.map((link) => {
           const isActive = pathname === link.href;
 
-          // If it's the logout link, render a button instead
           if (link.isLogout) {
             return (
               <button
@@ -114,7 +82,6 @@ const Sidebar = () => {
             );
           }
 
-          // Regular navigation links
           return (
             <Link
               key={link.href}

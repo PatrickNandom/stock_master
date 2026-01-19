@@ -117,13 +117,15 @@ const SignUpPage = () => {
         onSubmit={handleSubmit}
         noValidate
       >
-        <Image
-          src="/stockmaster_logo.svg"
-          className="hidden sm:block sm:mb-4"
-          alt="App logo"
-          width={150}
-          height={150}
-        />
+        <Link href="/">
+          <Image
+            src="/stockmaster_logo.svg"
+            className="hidden sm:block sm:mb-4"
+            alt="App logo"
+            width={150}
+            height={150}
+          />
+        </Link>
 
         <Image
           src="/auth_left-arrow.svg"
