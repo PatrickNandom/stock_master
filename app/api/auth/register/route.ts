@@ -11,10 +11,7 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    console.log(
-      "SECRET CHECK:",
-      process.env.AUTH_SECRET ? "Exists" : "MISSING",
-    );
+  
 
     const dataToValidate = {
       ...body,
@@ -68,7 +65,7 @@ export async function POST(request: Request) {
       // Create owner user (ownerName = businessName)
       const user = await tx.user.create({
         data: {
-          name: validatedData.businessName, // Using businessName as owner name
+          name: validatedData.businessName,
           email: validatedData.email,
           password: hashedPassword,
           role: "OWNER",
