@@ -9,7 +9,7 @@ export const links: NavLink[] = [
   },
   {
     label: "Staffs",
-    href: "/dashboard/sales",
+    href: "/dashboard/staffs",
     iconPath: "/dashboard_topbar_user_icon.svg",
   },
   {
