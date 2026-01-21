@@ -6,9 +6,9 @@ const COOKIE_NAME = "auth-token";
 
 export interface SessionPayload {
   userId: string;
+  businessId: string;
   email: string;
   role: string;
-  businessId: string;
 }
 
 export async function createToken(payload: SessionPayload): Promise<string> {
@@ -27,7 +27,6 @@ export async function verifyToken(
     return payload as unknown as SessionPayload;
   } catch (error) {
     console.log(error);
-
     return null;
   }
 }

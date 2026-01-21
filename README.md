@@ -94,3 +94,5 @@ It enables secure product, sales, and staff management with strict multi-tenant 
 ## Contact
 
 - For questions or support, open an issue or reach out at [patricknandom82@gmail.com].
+
+
