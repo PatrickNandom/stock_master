@@ -93,7 +93,6 @@ const SignUpPage = () => {
       const data = await response.json();
 
       if (!response.ok) {
-        // Handle different error response structures
         const errorMessage =
           data?.error?.message ||
           data?.message ||
@@ -101,12 +100,9 @@ const SignUpPage = () => {
           "Registration failed. Please try again.";
 
         setApiError(errorMessage);
-        setIsLoading(false); // Important: Reset loading state
-        return; // Stop execution here
+        setIsLoading(false);
+        return;
       }
-
-      // Only execute if response is OK
-      console.log("Registration successful:", data);
 
       // Navigate to dashboard
       router.push("/dashboard");
@@ -115,8 +111,6 @@ const SignUpPage = () => {
       setApiError("An unexpected error occurred. Please try again.");
       setIsLoading(false);
     }
-    // Note: Don't set isLoading to false here if navigation is successful
-    // The page will unmount during navigation
   };
 
   return (
@@ -138,7 +132,7 @@ const SignUpPage = () => {
 
         <Image
           src="/auth_left-arrow.svg"
-          className="cursor-pointer block absolute top-4 left-4"
+          className="cursor-pointer "
           alt="Back arrow"
           width={20}
           height={20}
