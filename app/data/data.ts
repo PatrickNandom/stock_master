@@ -8,6 +8,11 @@ export const links: NavLink[] = [
     iconPath: "/dashboard_nav_icon.svg",
   },
   {
+    label: "Staffs",
+    href: "/dashboard/sales",
+    iconPath: "/dashboard_topbar_user_icon.svg",
+  },
+  {
     label: "Sales",
     href: "/dashboard/sales",
     iconPath: "/dashboard_nav_sales_icon.svg",
