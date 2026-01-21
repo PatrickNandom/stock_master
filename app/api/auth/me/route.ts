@@ -1,4 +1,4 @@
-// app/api/auth/me/route.ts - Get Current User
+// app/api/auth/me/route.ts
 
 import { NextResponse } from "next/server";
 import { getSession } from "@/lib/auth";

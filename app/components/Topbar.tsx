@@ -2,12 +2,65 @@
 import SearchBar from "./SearchBar";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { UserData } from "../types";
+import { Button } from "@/components/ui/button";
+import ConfirmDialog from "./ConfirmDialog";
 
 const Topbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname: string = usePathname();
+  const [user, setUser] = useState<UserData | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const [showLogoutDialog, setShowLogoutDialog] = useState(false);
+  const router = useRouter();
+
+  const handleLogoutClick = () => {
+    setShowLogoutDialog(true);
+  };
+
+  const handleLogoutConfirm = async () => {
+    try {
+      const response = await fetch("/api/auth/logout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Logout failed");
+      }
+
+      router.push("/login");
+      router.refresh();
+    } catch (error) {
+      console.error("Logout error:", error);
+
+      router.push("/login");
+      router.refresh();
+    }
+  };
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await fetch("/api/auth/me");
+        if (response.ok) {
+          const data = await response.json();
+          setUser(data.user);
+        }
+      } catch (error) {
+        console.error("Failed to fetch user:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchUser();
+  }, []);
 
   const routeTitles: Record<string, string> = {
     "/dashboard": "Dashboard",
@@ -49,7 +102,7 @@ const Topbar = () => {
           />
         </div>
 
-        <div className="w-[134] max-h-8  bg-white rounded-2xl p-2 flex justify-around items-center">
+        <div className="w-[134] max-h-8  bg-white rounded-2xl p-3 flex gap-2 items-center">
           <Image
             src="/dashboard_topbar_user_icon.svg"
             alt="user"
@@ -57,7 +110,13 @@ const Topbar = () => {
             height={11}
           />
           <span className="truncate max-w-[120] text-[10px] text-black">
-            User <br /> Position title
+            {isLoading ? (
+              <span>Loading ...</span>
+            ) : (
+              <span>
+                <span className="font-bold">User:</span> {user?.role}
+              </span>
+            )}
           </span>
         </div>
       </div>
@@ -75,6 +134,12 @@ const Topbar = () => {
         <div className="absolute top-16 left-0 w-full bg-[#071548] text-white flex flex-col items-center gap-6 py-6 z-50 shadow-lg sm:hidden">
           <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)}>
             Dashboard
+          </Link>
+          <Link
+            href="/dashboard/staffs"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Staffs
           </Link>
           <Link
             href="/dashboard/sales"
@@ -108,8 +173,24 @@ const Topbar = () => {
           >
             Store Profile
           </Link>
+          <Button
+            className="text-white hover:text-peach"
+            onClick={() => handleLogoutClick()}
+          >
+            Logout
+          </Button>
         </div>
       )}
+      <ConfirmDialog
+        open={showLogoutDialog}
+        onOpenChange={setShowLogoutDialog}
+        onConfirm={handleLogoutConfirm}
+        title="Confirm Logout"
+        description="Are you sure you want to logout? You will need to login again to access your account."
+        confirmText="Yes, Logout"
+        cancelText="Cancel"
+        variant="destructive"
+      />
     </header>
   );
 };

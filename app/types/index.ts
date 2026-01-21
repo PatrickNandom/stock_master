@@ -11,6 +11,23 @@ export interface User {
   createdAt: Date;
 }
 
+export interface UserData {
+  id: string;
+  email: string;
+  name: string | null;
+  role: string;
+  businessId: string | null;
+  createdAt: Date;
+  business: {
+    id: string;
+    name: string;
+    email: string;
+    phone: string | null;
+    address: string | null;
+    role: string;
+  } | null;
+}
+
 export interface UserWithBusiness extends User {
   business: {
     id: string;
