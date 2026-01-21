@@ -65,6 +65,8 @@ const Topbar = () => {
   const routeTitles: Record<string, string> = {
     "/dashboard": "Dashboard",
     "/dashboard/sales": "Sales",
+    "/dashboard/staffs": "Staffs",
+
     "/dashboard/items": "Items",
     "/dashboard/notifications": "Notifications",
     "/dashboard/history": "History",
