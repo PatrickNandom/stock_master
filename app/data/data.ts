@@ -1,6 +1,12 @@
-import { NavLink } from "../types";
+import {
+  HistoryItem,
+  NavLink,
+  NotificationItem,
+  ProductUIData,
+  User,
+} from "../types";
 
-// LINKS DATA
+// LINKS DATA -> PAGE
 export const links: NavLink[] = [
   {
     label: "Dashboard",
@@ -46,18 +52,8 @@ export const links: NavLink[] = [
   },
 ];
 
-//STORE PROFILE DATA
-
-export type AppDataType = "sold" | "updated" | "added";
-
-export interface NotificationItem {
-  id: string;
-  productId: string;
-  type: AppDataType;
-  createdAt: string;
-}
-
-export const notifications: NotificationItem[] = [
+// MOCK STORE PROFILE DATA -> PAGE
+export const MOCK_NOTIFICATIONS: NotificationItem[] = [
   {
     id: "1",
     productId: "3456V",
@@ -108,16 +104,8 @@ export const notifications: NotificationItem[] = [
   },
 ];
 
-//HISTORY PAGE DATA
-
-export interface HistoryItem {
-  id: string;
-  productId: string;
-  type: AppDataType;
-  createdAt: string;
-}
-
-export const historyLists: HistoryItem[] = [
+// MOCK HISTORY UI DATA -> PAGE
+export const MOCK_HISTORY: HistoryItem[] = [
   {
     id: "1",
     productId: "3456V",
@@ -168,17 +156,8 @@ export const historyLists: HistoryItem[] = [
   },
 ];
 
-// PRODUCTS DATA
-export interface Product {
-  id: string;
-  image: string;
-  name: string;
-  code: string;
-  price: number;
-  stock: number;
-}
-
-export const MOCK_PRODUCTS: Product[] = [
+// MOCK PRODUCTS UI DATA -> PAGE
+export const MOCK_PRODUCTS: ProductUIData[] = [
   {
     id: "p1",
     image: "/dashboard_card_sales_icon.svg",
@@ -314,5 +293,90 @@ export const MOCK_PRODUCTS: Product[] = [
     code: "021",
     price: 2100,
     stock: 10,
+  },
+];
+
+// MOCK STAFFS UI DATA -> PAGE
+
+export const MOCK_STAFFS: User[] = [
+  {
+    id: "550e8400-e29b-41d4-a716-446655440001",
+    email: "john.doe@company.com",
+    name: "John Doe",
+    role: "ADMIN",
+    businessId: "business-123",
+    createdAt: new Date("2024-01-15"),
+  },
+  {
+    id: "550e8400-e29b-41d4-a716-446655440002",
+    email: "jane.smith@company.com",
+    name: "Jane Smith",
+    role: "STAFF",
+    businessId: "business-123",
+    createdAt: new Date("2024-03-20"),
+  },
+  {
+    id: "550e8400-e29b-41d4-a716-446655440003",
+    email: "bob.wilson@company.com",
+    name: "Bob Wilson",
+    role: "STAFF",
+    businessId: "business-123",
+    createdAt: new Date("2024-06-10"),
+  },
+  {
+    id: "550e8400-e29b-41d4-a716-446655440004",
+    email: "alice.johnson@company.com",
+    name: "Alice Johnson",
+    role: "ADMIN",
+    businessId: "business-123",
+    createdAt: new Date("2024-02-28"),
+  },
+  {
+    id: "550e8400-e29b-41d4-a716-446655440005",
+    email: "michael.brown@company.com",
+    name: null,
+    role: "STAFF",
+    businessId: "business-123",
+    createdAt: new Date("2024-07-05"),
+  },
+  {
+    id: "550e8400-e29b-41d4-a716-446655440006",
+    email: "sarah.davis@company.com",
+    name: "Sarah Davis",
+    role: "STAFF",
+    businessId: "business-123",
+    createdAt: new Date("2024-04-12"),
+  },
+  {
+    id: "550e8400-e29b-41d4-a716-446655440007",
+    email: "david.martinez@company.com",
+    name: "David Martinez",
+    role: "STAFF",
+    businessId: "business-123",
+    createdAt: new Date("2024-08-18"),
+  },
+  {
+    id: "550e8400-e29b-41d4-a716-446655440008",
+    email: "emily.taylor@company.com",
+    name: "Emily Taylor",
+    role: "ADMIN",
+    businessId: "business-123",
+    createdAt: new Date("2024-05-22"),
+  },
+  {
+    id: "550e8400-e29b-41d4-a716-446655440009",
+    email: "chris.anderson@company.com",
+    name: null,
+    role: "STAFF",
+    businessId: "business-123",
+    createdAt: new Date("2024-09-30"),
+  },
+  {
+    id: "550e8400-e29b-41d4-a716-446655440010",
+    email: "lisa.thompson@company.com",
+    name: "Lisa Thompson",
+    role: "STAFF",
+    businessId: "business-123",
+    createdAt: new Date("2024-11-14"),
   },
 ];

@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { historyLists } from "@/app/data/data";
+import { MOCK_HISTORY } from "@/app/data/data";
 
 import { useRouter } from "next/navigation";
 import HistoryCard from "@/app/components/HistoryCard";
@@ -23,7 +23,7 @@ const page = () => {
       </div>
 
       <div className="mt-4">
-        {historyLists.map((history) => (
+        {MOCK_HISTORY.map((history) => (
           <HistoryCard key={history.id} historyList={history} />
         ))}
       </div>
@@ -31,7 +31,7 @@ const page = () => {
       <p className="text-[#303C67] font-semibold py-4">Old Activities</p>
 
       <div>
-        {historyLists.map((history) => (
+        {MOCK_HISTORY.map((history) => (
           <HistoryCard key={history.id} historyList={history} />
         ))}
       </div>

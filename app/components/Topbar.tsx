@@ -66,7 +66,6 @@ const Topbar = () => {
     "/dashboard": "Dashboard",
     "/dashboard/sales": "Sales",
     "/dashboard/staffs": "Staffs",
-
     "/dashboard/items": "Items",
     "/dashboard/notifications": "Notifications",
     "/dashboard/history": "History",
@@ -104,7 +103,7 @@ const Topbar = () => {
           />
         </div>
 
-        <div className="w-[134] max-h-8  bg-white rounded-2xl p-3 flex gap-2 items-center">
+        <div className="w-[134] max-h-8  bg-white rounded-2xl p-3 flex justify-evenly items-center">
           <Image
             src="/dashboard_topbar_user_icon.svg"
             alt="user"
@@ -116,7 +115,8 @@ const Topbar = () => {
               <span>Loading ...</span>
             ) : (
               <span>
-                <span className="font-bold">User:</span> {user?.role}
+                <span className="font-bold text-center">User</span>
+                <span>{user?.role}</span>
               </span>
             )}
           </span>

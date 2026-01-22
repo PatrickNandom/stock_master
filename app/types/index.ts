@@ -11,6 +11,7 @@ export interface User {
   createdAt: Date;
 }
 
+// user type as response
 export interface UserData {
   id: string;
   email: string;
@@ -28,6 +29,7 @@ export interface UserData {
   } | null;
 }
 
+// a user type with business
 export interface UserWithBusiness extends User {
   business: {
     id: string;
@@ -51,7 +53,7 @@ export interface Product {
   updatedAt: Date;
 }
 
-// Sale Types
+// Sale Item Types
 export interface SaleItem {
   id: string;
   saleId: string;
@@ -63,6 +65,7 @@ export interface SaleItem {
     name: string;
   };
 }
+
 // Sale
 export interface Sale {
   id: string;
@@ -74,7 +77,7 @@ export interface Sale {
   items: SaleItem[];
 }
 
-// History Types
+// Mock History Types
 export interface History {
   id: string;
   type: HistoryType;
@@ -106,8 +109,8 @@ export interface AuthResponse {
     businessName: string;
   };
 }
-// Links
 
+// Links
 export interface NavLink {
   label: string;
   href: string;
@@ -115,51 +118,61 @@ export interface NavLink {
   isLogout?: boolean;
 }
 
+// Error Response
 export interface ApiError {
   error: string;
 }
 
+// Products Response List
 export interface ProductsResponse {
   products: Product[];
 }
 
+//Single User Response
 export interface ProductResponse {
   product: Product;
   message?: string;
 }
 
+//Sales Response List
 export interface SalesResponse {
   sales: Sale[];
 }
 
+// Single Sales Response
 export interface SaleResponse {
   sale: Sale;
   message?: string;
 }
 
+// Staff Response List
 export interface StaffResponse {
   staff: User[];
 }
 
+// Single Staff Response List
 export interface StaffMemberResponse {
   staff: User;
   message?: string;
 }
 
+// History Response List
 export interface HistoryResponse {
   history: History[];
 }
 
+// Single Business Response
 export interface BusinessResponse {
   business: Business;
   message?: string;
 }
 
+// Single User Response
 export interface UserResponse {
   user: UserWithBusiness;
 }
 
-// Form Types
+// Registration Form Types
 export interface RegisterForm {
   businessName: string;
   ownerName: string;
@@ -170,11 +183,13 @@ export interface RegisterForm {
   confirmPassword: string;
 }
 
+// Loging UI Form
 export interface LoginForm {
   email: string;
   password: string;
 }
 
+// Product UI Form
 export interface ProductForm {
   name: string;
   price: number;
@@ -183,11 +198,13 @@ export interface ProductForm {
   description?: string;
 }
 
+// Sales UI Form
 export interface SaleForm {
   items: Array<{ productId: string; quantity: number }>;
   paymentType: PaymentType;
 }
 
+// Staff UI Form
 export interface StaffForm {
   name: string;
   email: string;
@@ -195,11 +212,14 @@ export interface StaffForm {
   role: "ADMIN" | "STAFF";
 }
 
+// Business UI Ubdate Form
 export interface BusinessUpdateForm {
   name?: string;
   address?: string;
   phone?: string;
 }
+
+// Dialugue UI Props types
 export interface ConfirmDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
@@ -209,4 +229,33 @@ export interface ConfirmDialogProps {
   confirmText?: string;
   cancelText?: string;
   variant?: "default" | "destructive";
+}
+
+// Mock Transaction Types
+export type AppDataType = "sold" | "updated" | "added";
+
+// Mock History Item Types
+export interface HistoryItem {
+  id: string;
+  productId: string;
+  type: AppDataType;
+  createdAt: string;
+}
+
+// Mock Notification Item Types
+export interface NotificationItem {
+  id: string;
+  productId: string;
+  type: AppDataType;
+  createdAt: string;
+}
+
+// Mock product UI Types
+export interface ProductUIData {
+  id: string;
+  image: string;
+  name: string;
+  code: string;
+  price: number;
+  stock: number;
 }

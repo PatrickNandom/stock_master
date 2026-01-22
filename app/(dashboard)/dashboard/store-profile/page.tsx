@@ -4,7 +4,7 @@ import StoreCard from "@/app/components/StoreCard";
 import StoreProfileCard from "@/app/components/StoreProfileCard";
 import Image from "next/image";
 import NotificationRow from "@/app/components/NotificationRow";
-import { notifications } from "@/app/data/data";
+import { MOCK_HISTORY } from "@/app/data/data";
 import { useRouter } from "next/navigation";
 
 const Page = () => {
@@ -60,7 +60,7 @@ const Page = () => {
         </div>
 
         <div className="bg-[#FCDED6] rounded-[5] mt-8 p-4">
-          {notifications.map((notification) => (
+          {MOCK_HISTORY.map((notification) => (
             <NotificationRow
               key={notification.id}
               notification={notification}

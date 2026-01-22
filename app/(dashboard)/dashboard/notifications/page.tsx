@@ -1,6 +1,6 @@
 "use client";
 import HistoryCard from "@/app/components/HistoryCard";
-import { historyLists } from "@/app/data/data";
+import { MOCK_NOTIFICATIONS } from "@/app/data/data";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 const page = () => {
@@ -19,7 +19,7 @@ const page = () => {
       />
 
       <div className="mt-4">
-        {historyLists.map((history) => (
+        {MOCK_NOTIFICATIONS.map((history) => (
           <HistoryCard
             key={history.id}
             backgroundColor="#CDD0DA"
