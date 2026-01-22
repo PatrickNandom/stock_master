@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import { LoginInput, loginSchema } from "@/lib/validations/auth";
 import PrimaryButton from "@/app/components/PrimaryButton";
 import Link from "next/link";
+import { LoginFormData } from "@/app/types";
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -16,17 +18,12 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 
-type FormData = {
-  email: string;
-  password: string;
-};
-
 const LoginPage = () => {
   const router = useRouter();
-  const [form, setForm] = useState<FormData>({ email: "", password: "" });
-  const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>(
-    {},
-  );
+  const [form, setForm] = useState<LoginFormData>({ email: "", password: "" });
+  const [errors, setErrors] = useState<
+    Partial<Record<keyof LoginFormData, string>>
+  >({});
   const [isLoading, setIsLoading] = useState(false);
   const [serverError, setServerError] = useState<string>("");
 
@@ -101,7 +98,7 @@ const LoginPage = () => {
   return (
     <main className="px-8 min-h-screen flex items-center justify-center bg-linear-to-r from-[#F7AB97] to-[#071548]">
       <form
-        className="flex flex-col items-center justify-evenly relative w-full max-w-125 min-h-125 sm:max-w-150 sm:min-h-150 lg:max-w-200 bg-[#E9E3E399] rounded-[20px] p-10"
+        className="flex flex-col items-center justify-evenly relative w-full max-w-125 min-h-125 sm:max-w-150 sm:min-h-150 lg:max-w-200 bg-[#E9E3E399] rounded-[20] p-10"
         onSubmit={handleSubmit}
         noValidate
       >

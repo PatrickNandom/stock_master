@@ -297,7 +297,6 @@ export const MOCK_PRODUCTS: ProductUIData[] = [
 ];
 
 // MOCK STAFFS UI DATA -> PAGE
-
 export const MOCK_STAFFS: User[] = [
   {
     id: "550e8400-e29b-41d4-a716-446655440001",
@@ -334,7 +333,7 @@ export const MOCK_STAFFS: User[] = [
   {
     id: "550e8400-e29b-41d4-a716-446655440005",
     email: "michael.brown@company.com",
-    name: null,
+    name: "Hope John",
     role: "STAFF",
     businessId: "business-123",
     createdAt: new Date("2024-07-05"),
@@ -366,7 +365,7 @@ export const MOCK_STAFFS: User[] = [
   {
     id: "550e8400-e29b-41d4-a716-446655440009",
     email: "chris.anderson@company.com",
-    name: null,
+    name: "Happiness James",
     role: "STAFF",
     businessId: "business-123",
     createdAt: new Date("2024-09-30"),

@@ -1,10 +1,3 @@
-// app/types/index.ts
-// export type UserRole = "ADMIN" | "STAFF";
-
-// export type PaymentType = "CASH" | "CARD" | "TRANSFER";
-// export type SaleStatus = "PENDING" | "COMPLETED" | "CANCELLED";
-// export type HistoryType = "sold" | "updated" | "added";
-
 import { UserRole, PaymentType, SaleStatus, HistoryType } from "@prisma/client";
 
 // User Types
@@ -265,3 +258,19 @@ export interface ProductUIData {
   price: number;
   stock: number;
 }
+
+// Login Form type
+export type LoginFormData = {
+  email: string;
+  password: string;
+};
+
+// Register Form type
+export type RegisterFormData = {
+  businessName: string;
+  address: string;
+  email: string;
+  phone: string;
+  password: string;
+  confirmPassword: string;
+};

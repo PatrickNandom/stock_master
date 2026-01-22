@@ -2,7 +2,7 @@
 
 const AddStaff = () => {
   return (
-    <div>AddStaff</div>
+    <div>Add Staff page under dev ... </div>
   )
 }
 
