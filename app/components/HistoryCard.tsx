@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { HistoryItem } from "../types";
+import { HistoryItem } from "@/app/types/index";
 
 type Props = {
   historyList: HistoryItem;
