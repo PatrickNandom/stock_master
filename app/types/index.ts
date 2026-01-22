@@ -1,5 +1,9 @@
 // app/types/index.ts
-import { UserRole, PaymentType, SaleStatus, HistoryType } from "@prisma/client";
+export type UserRole = "ADMIN" | "STAFF";
+
+export type PaymentType = "CASH" | "CARD" | "TRANSFER";
+export type SaleStatus = "PENDING" | "COMPLETED" | "CANCELLED";
+export type HistoryType = "sold" | "updated" | "added";
 
 // User Types
 export interface User {

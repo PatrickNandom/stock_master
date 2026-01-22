@@ -3,8 +3,7 @@ import HistoryCard from "@/app/components/HistoryCard";
 import { MOCK_NOTIFICATIONS } from "@/app/data/data";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-const page = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+const NotificationPage = () => {
   const router = useRouter();
   return (
     <section>
@@ -31,4 +30,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default NotificationPage;

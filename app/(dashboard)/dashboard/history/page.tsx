@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
 import { MOCK_HISTORY } from "@/app/data/data";
-
 import { useRouter } from "next/navigation";
+
 import HistoryCard from "@/app/components/HistoryCard";
-const page = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+const HisoryPage = () => {
   const router = useRouter();
+
   return (
     <section>
       <div className="flex gap-4">
@@ -39,4 +39,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default HisoryPage;

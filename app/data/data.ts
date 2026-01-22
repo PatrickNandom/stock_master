@@ -4,7 +4,7 @@ import {
   NotificationItem,
   ProductUIData,
   User,
-} from "../types";
+} from "@/app/types/index";
 
 // LINKS DATA -> PAGE
 export const links: NavLink[] = [
@@ -380,3 +380,4 @@ export const MOCK_STAFFS: User[] = [
     createdAt: new Date("2024-11-14"),
   },
 ];
+

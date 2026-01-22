@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { User } from "@/app/types";
 import { MOCK_STAFFS } from "@/app/data/data";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 import {
   Table,
   TableBody,
@@ -30,14 +32,16 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MoreHorizontal, Shield, UserCog } from "lucide-react";
+import Link from "next/link";
 
-export default function StaffsPage() {
+const StaffsPage = () => {
   const [staffs, setStaffs] = useState<User[]>(MOCK_STAFFS);
   const [selectedStaff, setSelectedStaff] = useState<User | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [actionType, setActionType] = useState<"promote" | "demote" | null>(
     null,
   );
+  const router = useRouter();
 
   const handleRoleChange = (staff: User, newRole: "ADMIN" | "STAFF") => {
     setSelectedStaff(staff);
@@ -63,19 +67,32 @@ export default function StaffsPage() {
 
   return (
     <div className="container mx-auto py-10">
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold">Staff Management</h1>
-        <p className="text-gray-600">Manage your staff roles and permissions</p>
+      <div className="flex items-center justify-between gap-10 mb-4">
+        <Image
+          src="/auth_left-arrow.svg"
+          className="hidden sm:block cursor-pointer self-start"
+          alt="Back"
+          width={20}
+          height={20}
+          priority
+          onClick={() => router.back()}
+        />
+        <Link
+          href="/dashboard/staffs/add-staff"
+          className="text-xl text-[#E67E5D] font-bold"
+        >
+          Add Staff
+        </Link>
       </div>
 
       <div className="rounded-md border">
         <Table>
-          <TableHeader>
+          <TableHeader className="bg-linear-to-r from-[#F7AB97] to-[#071548]">
             <TableRow>
-              <TableHead>Name</TableHead>
-              <TableHead>Email</TableHead>
-              <TableHead>Role</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
+              <TableHead className="text-white">Name</TableHead>
+              <TableHead className="text-white">Email</TableHead>
+              <TableHead className="text-white">Role</TableHead>
+              <TableHead className="text-right text-white">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -133,7 +150,7 @@ export default function StaffsPage() {
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>
+            <DialogTitle className="text-[#F7AB97]">
               {actionType === "promote"
                 ? "Promote to Admin"
                 : "Demote to Staff"}
@@ -147,10 +164,17 @@ export default function StaffsPage() {
             <Button variant="outline" onClick={() => setDialogOpen(false)}>
               Cancel
             </Button>
-            <Button onClick={confirmRoleChange}>Confirm</Button>
+            <Button
+              onClick={confirmRoleChange}
+              className="bg-linear-to-r from-[#F7AB97] to-[#071548]"
+            >
+              Confirm
+            </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
     </div>
   );
-}
+};
+
+export default StaffsPage;

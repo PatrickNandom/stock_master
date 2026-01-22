@@ -1,16 +1,15 @@
-"use client"
+"use client";
 import ProductRow from "@/app/components/ProductRow";
 import { MOCK_PRODUCTS } from "@/app/data/data";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-const page = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+const ItemsPage = () => {
   const router = useRouter();
   return (
     <div>
-      <div className="flex items-center justify-start gap-10">
+      <div className="flex items-center justify-between gap-10">
         <Image
           src="/auth_left-arrow.svg"
           className="hidden sm:block cursor-pointer self-start"
@@ -20,9 +19,14 @@ const page = () => {
           priority
           onClick={() => router.back()}
         />
-        <Link href="/dashboard/items/add-items">Add Item</Link>
+        <Link
+          href="/dashboard/items/add-items"
+          className=" text-[#E67E5D] font-normal sm:text-xl sm:font-bold"
+        >
+          Add Item
+        </Link>
       </div>
-      <div className="mt-8">
+      <div className="mt-4">
         {MOCK_PRODUCTS.map((product) => (
           <ProductRow key={product.id} product={product} />
         ))}
@@ -31,4 +35,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default ItemsPage;

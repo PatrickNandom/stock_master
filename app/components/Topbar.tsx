@@ -71,6 +71,7 @@ const Topbar = () => {
     "/dashboard/history": "History",
     "/dashboard/store-profile": "Store Profile",
     "/dashboard/items/add-items": "Add Item",
+    "/dashboard/staffs/add-staff": "Add Staff",
   };
   const title: string = routeTitles[pathname] ?? "Dashboard";
 
@@ -107,15 +108,15 @@ const Topbar = () => {
           <Image
             src="/dashboard_topbar_user_icon.svg"
             alt="user"
-            width={11}
-            height={11}
+            width={16}
+            height={16}
           />
           <span className="truncate max-w-[120] text-[10px] text-black">
             {isLoading ? (
               <span>Loading ...</span>
             ) : (
               <span>
-                <span className="font-bold text-center">User</span>
+                <span className="font-bold text-center">User </span>
                 <span>{user?.role}</span>
               </span>
             )}
@@ -133,7 +134,7 @@ const Topbar = () => {
 
       {/* Mobile menu*/}
       {isMobileMenuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-[#071548] text-white flex flex-col items-center gap-6 py-6 z-50 shadow-lg sm:hidden">
+        <div className="absolute top-15.5 left-0 w-full bg-[#071548] text-white flex flex-col items-center gap-6 py-6 z-50 shadow-lg sm:hidden">
           <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)}>
             Dashboard
           </Link>
