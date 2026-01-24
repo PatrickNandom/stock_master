@@ -1,7 +1,6 @@
 import Image from "next/image";
-import { NotificationItem } from "@/app/data/data";
+import { NotificationItem } from "@/app/types/index";
 import Link from "next/link";
-
 type Props = {
   notification: NotificationItem;
 };
