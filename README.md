@@ -22,6 +22,7 @@ It enables secure product, sales, and staff management with strict multi-tenant 
 
 - **Audit Logs**
   Complete history tracking for product adds, updates, and sales.
+
 ## Technology Stack
 
 - **Frontend:** Next.js TypeScript, Tailwind CSS
@@ -92,4 +93,4 @@ It enables secure product, sales, and staff management with strict multi-tenant 
 
 ## Contact
 
-- For questions or support, open an issue or reach out at [patricknandom82@gmail.com].
+- For questions or support, open an issue or reach out at[patricknandom82@gmail.com].
