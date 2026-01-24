@@ -89,7 +89,7 @@ It enables secure product, sales, and staff management with strict multi-tenant 
 
 ## License
 
-- MIT License © Nandom Patrick Molshakat
+- MIT License © Nandom Patrick Molshakat(nPM)
 
 ## Contact
 
