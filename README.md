@@ -25,9 +25,9 @@ It enables secure product, sales, and staff management with strict multi-tenant 
 
 ## Technology Stack
 
-- **Frontend:** Next.js (App Router), TypeScript, Tailwind CSS
+- **Frontend:** Next.js TypeScript, Tailwind CSS
 
-- **Backend:** Next.js API Routes (Edge Runtime compatible)
+- **Backend:** Next.js API Routes
 
 - **Database:** PostgreSQL
 
@@ -55,9 +55,9 @@ It enables secure product, sales, and staff management with strict multi-tenant 
 
 ## Configure environment variables in a .env file:
 
-- DATABASE_URL="postgresql://user:password@localhost:5433/stockmaster"
-- JWT_SECRET="your_ultra_secure_secret"
-- NEXT_PUBLIC_API_URL=[link]
+- DATABASE_URL=[insert it here]
+- JWT_SECRET=[insert it here]
+- NEXT_PUBLIC_API_URL=[insert it here]
 
 ## Initialize the database:
 
@@ -94,5 +94,3 @@ It enables secure product, sales, and staff management with strict multi-tenant 
 ## Contact
 
 - For questions or support, open an issue or reach out at [patricknandom82@gmail.com].
-
-
