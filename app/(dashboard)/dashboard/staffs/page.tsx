@@ -66,8 +66,8 @@ const StaffsPage = () => {
   };
 
   return (
-    <div className="container mx-auto py-10">
-      <div className="flex items-center justify-between gap-10 mb-4">
+    <div className="container mx-auto py-4">
+      <div className="flex items-baseline justify-between gap-10 mb-4">
         <Image
           src="/auth_left-arrow.svg"
           className="hidden sm:block cursor-pointer self-start"
@@ -79,8 +79,16 @@ const StaffsPage = () => {
         />
         <Link
           href="/dashboard/staffs/add-staff"
-          className="text-xl text-[#E67E5D] font-bold"
+          className="text-xl text-[#E67E5D] font-bold flex"
         >
+          <span className="bg-[#E67E5D] flex items-center justify-center rounded-full mr-2 w-6 h-6">
+            <Image
+              src="/dashboard_add_icon.svg"
+              alt="add-icon"
+              height={20}
+              width={20}
+            />
+          </span>{" "}
           Add Staff
         </Link>
       </div>

@@ -51,7 +51,7 @@ const Sidebar = () => {
               height={50}
             />
           </Link>
-          <button className="text-white text-2xl font-bold">☰</button>
+          <button className="text-white text-2xl font-bold hidden lg:block">☰</button>
         </div>
         <nav className="space-y-2 px-4">
           {links.map((link) => {
@@ -74,7 +74,7 @@ const Sidebar = () => {
                       backgroundColor: "#374151",
                     }}
                   />
-                  {link.label}
+                  <span className="hidden lg:block"> {link.label}</span>
                 </button>
               );
             }
@@ -99,7 +99,7 @@ const Sidebar = () => {
                     backgroundColor: isActive ? "#F7AB97" : "#374151",
                   }}
                 />
-                {link.label}
+                <span className="hidden lg:block"> {link.label}</span>
               </Link>
             );
           })}
