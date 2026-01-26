@@ -88,7 +88,7 @@ const AddStaff = () => {
         return;
       }
 
-      router.push("/staff");
+      router.push("/dashboard/staffs");
     } catch (error) {
       if (error instanceof ZodError) {
         const fieldErrors: Record<string, string> = {};
