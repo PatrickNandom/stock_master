@@ -12,6 +12,10 @@ const SalesPage = () => {
   const [quantity, setQuantity] = useState(40);
   const [price, setPrice] = useState(1500);
 
+  const handleSave = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
+
   return (
     <section className="flex flex-col">
       <div className="flex items-center justify-start gap-10">
@@ -27,7 +31,10 @@ const SalesPage = () => {
         <h1 className="text-[18]">Input name or ID of product</h1>
       </div>
 
-      <form action="" className="max-w-[750] mt-4 self-center w-full">
+      <form
+        onSubmit={handleSave}
+        className="max-w-[750] mt-4 self-center w-full"
+      >
         <CustomInput
           label="Item name"
           inputBackgroundColor="bg-[#FCDED6]"

@@ -1,3 +1,4 @@
+// app/lib/auth
 import { SignJWT, jwtVerify, type JWTPayload } from "jose";
 import { cookies } from "next/headers";
 

@@ -29,7 +29,7 @@ const CustomInput = React.forwardRef<HTMLInputElement, CustomInputProps>(
   ) => {
     return (
       <div className="mb-4 ">
-        <label className={`flex ${align} mb-2 font-medium text-gray-700`}>
+        <label className={`flex ${align} mb-2 font-bold text-gray-700`}>
           {label}
         </label>
 
