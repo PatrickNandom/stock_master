@@ -68,8 +68,6 @@ const AddStaff = () => {
     try {
       const validatedData = createStaffSchema.parse(formData);
 
-      console.log(formData);
-
       const response = await fetch("/api/staff", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -106,6 +104,7 @@ const AddStaff = () => {
       setIsSaving(false);
     }
   };
+  
   // Handle show success
   const handleSuccessClose = () => {
     setShowSuccess(false);

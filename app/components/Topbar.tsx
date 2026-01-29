@@ -72,8 +72,26 @@ const Topbar = () => {
     "/dashboard/store-profile": "Store Profile",
     "/dashboard/items/add-items": "Add Item",
     "/dashboard/staffs/add-staff": "Add Staff",
+    "/dashboard/staffs/[id]": "Staff Details",
   };
-  const title: string = routeTitles[pathname] ?? "Dashboard";
+  const getRouteTitle = (path: string): string => {
+    if (routeTitles[path]) {
+      return routeTitles[path];
+    }
+
+    for (const key in routeTitles) {
+      if (key.includes("[id]")) {
+        const basePath = key.replace("[id]", "");
+        if (path.startsWith(basePath)) {
+          return routeTitles[key];
+        }
+      }
+    }
+
+    return "Dashboard"; 
+  };
+
+  const title = getRouteTitle(pathname);
 
   return (
     <header className="min-h-16 bg-linear-to-r from-[#F7AB97] to-[#071548] flex items-center sm:items-center sm:justify-between px-6 text-white">

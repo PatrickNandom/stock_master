@@ -29,7 +29,7 @@ export async function GET(
     if (!session)
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-    const { id } = await params; // Await the params
+    const { id } = await params; 
 
     const staff = await prisma.user.findUnique({
       where: {
@@ -67,7 +67,7 @@ export async function GET(
 // PUT/PATCH - Update staff member
 export async function PUT(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }, // Type updated to Promise
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
     const session = await getSession();
@@ -158,7 +158,7 @@ export const PATCH = PUT;
 // DELETE - Delete staff member
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }, // Type updated to Promise
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
     const session = await getSession();
