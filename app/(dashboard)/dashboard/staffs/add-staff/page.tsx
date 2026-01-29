@@ -56,6 +56,8 @@ const AddStaff = () => {
     phone: "",
   });
 
+  const [showSuccess, setShowSuccess] = useState(false);
+
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -87,8 +89,8 @@ const AddStaff = () => {
         setIsSaving(false);
         return;
       }
-
-      router.push("/dashboard/staffs");
+      setShowSuccess(true);
+      setIsSaving(false);
     } catch (error) {
       if (error instanceof ZodError) {
         const fieldErrors: Record<string, string> = {};
@@ -103,6 +105,11 @@ const AddStaff = () => {
       }
       setIsSaving(false);
     }
+  };
+  // Handle show success
+  const handleSuccessClose = () => {
+    setShowSuccess(false);
+    router.push("/dashboard/staffs");
   };
 
   return (
@@ -205,7 +212,7 @@ const AddStaff = () => {
           inputBorderColor="border-[#FCDED6]"
           error={errors.role}
         />
-
+        {/**Error dialog */}
         <AlertDialog
           open={!!errors.general}
           onOpenChange={(open) => !open && setErrors({})}
@@ -219,6 +226,24 @@ const AddStaff = () => {
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogAction onClick={() => setErrors({})}>
+                OK
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+
+        {/*Show success dialog */}
+
+        <AlertDialog open={showSuccess} onOpenChange={setShowSuccess}>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Success!</AlertDialogTitle>
+              <AlertDialogDescription className="text-green-600">
+                Staff member has been created successfully.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogAction onClick={handleSuccessClose}>
                 OK
               </AlertDialogAction>
             </AlertDialogFooter>
