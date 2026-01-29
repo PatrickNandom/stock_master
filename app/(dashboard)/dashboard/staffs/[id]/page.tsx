@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { use, useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import {
@@ -24,14 +24,12 @@ interface StaffMember {
   updatedAt: string;
 }
 
-interface StaffDetailPageProps {
-  params: {
-    id: string;
-  };
-}
+type StaffDetailPageProps = {
+  params: Promise<{ id: string }>;
+};
 
 const StaffDetailPage = ({ params }: StaffDetailPageProps) => {
-  const { id } = params;
+  const { id } = use(params);
   const router = useRouter();
 
   const [staff, setStaff] = useState<StaffMember | null>(null);
@@ -147,9 +145,7 @@ const StaffDetailPage = ({ params }: StaffDetailPageProps) => {
           {/* Basic Info */}
           <div className="flex-1">
             <div className="flex items-center gap-3 mb-2">
-              <h2 className="text-2xl font-bold text-gray-900">
-                {staff.name}
-              </h2>
+              <h2 className="text-2xl font-bold text-gray-900">{staff.name}</h2>
               <span
                 className={`px-3 py-1 rounded-full text-xs font-semibold ${
                   staff.role === "ADMIN"
@@ -206,14 +202,12 @@ const StaffDetailPage = ({ params }: StaffDetailPageProps) => {
           <AlertDialogHeader>
             <AlertDialogTitle>Delete Staff Member</AlertDialogTitle>
             <AlertDialogDescription>
-              Are you sure you want to delete {staff.name}? This action cannot be
-              undone.
+              Are you sure you want to delete {staff.name}? This action cannot
+              be undone.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel disabled={isDeleting}>
-              Cancel
-            </AlertDialogCancel>
+            <AlertDialogCancel disabled={isDeleting}>Cancel</AlertDialogCancel>
             <AlertDialogAction
               onClick={handleDelete}
               disabled={isDeleting}
