@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -42,24 +43,32 @@ const Footer = () => {
         </span>
 
         <nav className="flex flex-row justify-center sm:justify-start gap-4 mt-2">
-          <Image
-            src="/footer_facebook_icon.svg"
-            alt="facebook logo"
-            width={15}
-            height={15}
-          />
-          <Image
-            src="/footer_twitter_icon.svg"
-            alt="twitter logo"
-            width={15}
-            height={15}
-          />
-          <Image
-            src="/footer_linkedin_icon.svg"
-            alt="linkedin logo"
-            width={15}
-            height={15}
-          />
+          <Link href="">
+            <Image
+              src="/footer_facebook_icon.svg"
+              alt="facebook logo"
+              width={15}
+              height={15}
+            />
+          </Link>
+
+          <Link href="">
+            <Image
+              src="/footer_twitter_icon.svg"
+              alt="twitter logo"
+              width={15}
+              height={15}
+            />
+          </Link>
+
+          <Link href="https://www.linkedin.com/in/patrick-nandom-604ba0297/">
+            <Image
+              src="/footer_linkedin_icon.svg"
+              alt="linkedin logo"
+              width={15}
+              height={15}
+            />
+          </Link>
         </nav>
       </div>
     </footer>

@@ -19,7 +19,7 @@ interface StaffMember {
   name: string;
   email: string;
   phone?: string;
-  role: "ADMIN" | "STAFF";
+  role: "ADMIN" | "STAFF" | "OWNER";
   createdAt: string;
   updatedAt: string;
 }
@@ -47,8 +47,7 @@ const StaffDetailPage = ({ params }: StaffDetailPageProps) => {
         const data = await response.json();
         setStaff(data.staff);
       } catch (err) {
-        console.error("Error fetching staff:", err);
-        setError("Failed to load staff details");
+        setError("Failed to load staff details" + err);
       } finally {
         setIsLoading(false);
       }
@@ -121,13 +120,13 @@ const StaffDetailPage = ({ params }: StaffDetailPageProps) => {
         <div className="flex items-center gap-3">
           <button
             onClick={handleEdit}
-            className="px-6 py-2.5 bg-[#E85C33] text-white rounded-3xl hover:bg-[#d14a26] transition-colors font-medium"
+            className="px-6 py-1.5 bg-[#E85C33] text-white rounded-3xl hover:bg-[#d14a26] transition-colors font-medium cursor-pointer"
           >
             Edit
           </button>
           <button
             onClick={() => setShowDeleteDialog(true)}
-            className="px-6 py-2.5 bg-red-600 text-white rounded-3xl hover:bg-red-700 transition-colors font-medium"
+            className="px-6 py-1.5 bg-red-600 text-white rounded-3xl hover:bg-red-700 transition-colors font-medium cursor-pointer"
           >
             Delete
           </button>
