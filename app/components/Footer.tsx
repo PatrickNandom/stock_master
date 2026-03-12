@@ -43,7 +43,7 @@ const Footer = () => {
         </span>
 
         <nav className="flex flex-row justify-center sm:justify-start gap-4 mt-2">
-          <Link href="">
+          <Link href="https://www.facebook.com/patrick.nandom.31">
             <Image
               src="/footer_facebook_icon.svg"
               alt="facebook logo"
@@ -52,7 +52,7 @@ const Footer = () => {
             />
           </Link>
 
-          <Link href="">
+          <Link href="https://x.com/NandomPatruck">
             <Image
               src="/footer_twitter_icon.svg"
               alt="twitter logo"
