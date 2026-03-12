@@ -52,7 +52,7 @@ const Footer = () => {
             />
           </Link>
 
-          <Link href="https://x.com/NandomPatruck">
+          <Link href="https://x.com/patrick_nandom">
             <Image
               src="/footer_twitter_icon.svg"
               alt="twitter logo"
